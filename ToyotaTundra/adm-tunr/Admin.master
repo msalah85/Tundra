@@ -1,0 +1,160 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin.master.cs" Inherits="admin_TundraMk_Admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
+    <title>.:: Tundra Cars ::.</title>
+    <link type="image/x-icon" href="../favicon.ico" rel="shortcut icon" />
+    <meta name="Copyright" content="Copy rights reserved for TundraMk  - 2011" />
+    <link href="/App_Themes/admin/css/StyleSheet.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/App_Themes/admin/images/pro_dropdown_2.min.css" />
+    <script src="/Scripts/jquery-1.10.2.min.js"></script>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+        <%: Scripts.Render("~/bundles/WebFormsJs") %>
+    </asp:PlaceHolder>
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" />
+        <center>
+            <table border="0" cellpadding="0" cellspacing="0" width="1000px" class="ContentHolder">
+                <tr class="header-top">
+                    <td class="MinutesLogo">
+                        <a runat="server" href="Home.aspx">
+                            <img runat="server" src="~/App_Themes/admin/images/logo.png" alt="" /></a>
+                    </td>
+                    <!-- Notification Area -->
+                    <td align="left" valign="top">
+                        <div style="width: 832px; height: 46px; float: right;">
+                            <div class="Notification">
+                                Welcome :
+                            <asp:Label ID="lblAdminName" runat="server"></asp:Label>
+                                &nbsp;&nbsp;|&nbsp;&nbsp; <a runat="server" href="Home.aspx">Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                            <a runat="server" href="~/" target="_blank">Website</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                            <a runat="server" href="Default.aspx">Signout</a>
+                            </div>
+                        </div>
+                        <asp:UpdateProgress ID="UpdateProgress1" AssociatedUpdatePanelID="UpdatePanel1" DynamicLayout="true"
+                            runat="server">
+                            <ProgressTemplate>
+                                <div class="Background">
+                                </div>
+                                <div class="div-right progress">
+                                    Loading ...
+                                </div>
+                            </ProgressTemplate>
+                        </asp:UpdateProgress>
+                    </td>
+                </tr>
+                <!-- Menu-->
+                <tr valign="top">
+                    <td colspan="2" valign="top" style="height: 57px;">
+                        <center>
+                            <ul id="nav">
+                                <li class="top"><a id="A56" runat="server" href="#cars" class="top_link"><span class="down">Cars</span></a>
+                                    <ul class="sub">
+                                        <li><a id="A57" runat="server" href="CarsAddEdit.aspx">Add new</a></li>
+                                        <li class="mid"><a href="#carslist1" class="fly">New cars</a>
+                                            <ul>
+                                                <li><a id="A8" runat="server" href="cars/new/available.aspx">Available</a></li>
+                                                <li><a id="A14" runat="server" href="cars/new/sold.aspx">Sold cars</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="mid"><a href="#carslist2" class="fly">Used cars</a>
+                                            <ul>
+                                                <li><a id="A3" runat="server" href="cars/used/available.aspx">Available</a></li>
+                                                <li><a id="A17" runat="server" href="cars/used/sold.aspx">Sold cars</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="mid"><a href="#carslist3" class="fly">Damaged cars</a>
+                                            <ul>
+                                                <li><a id="A6" runat="server" href="cars/damaged/available.aspx">Available</a></li>
+                                                <li><a id="A19" runat="server" href="cars/damaged/sold.aspx">Sold cars</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="mid"><a href="#carslist3" class="fly">Scarp cars</a>
+                                            <ul>
+                                                <li><a id="A28" runat="server" href="cars/scrap/available.aspx">Available</a></li>
+                                                <li><a id="A29" runat="server" href="cars/scrap/sold.aspx">Sold cars</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="top"><a id="A1" runat="server" href="#options" class="top_link"><span
+                                    class="down">Car Options</span></a>
+                                    <ul class="sub">
+                                        <li class="mid"><a id="A37" runat="server" href="MarkerView.aspx">Makers</a></li>
+                                        <li class="mid"><a id="A40" runat="server" href="ModelView.aspx">Models</a></li>
+                                    </ul>
+                                </li>
+                                <li class="top" id="Site_Pages" runat="server"><a id="A4" runat="server" href="#pages"
+                                    class="top_link"><span class="down">Site pages</span></a>
+                                    <ul class="sub">
+                                        <li><a id="A5" runat="server" href="SiteLinksAdd.aspx">Add new</a></li>
+                                        <li><a id="A15" runat="server" href="SiteLinksView.aspx">View list</a></li>
+                                    </ul>
+                                </li>
+                                <li class="top" id="Employees_link" runat="server"><a id="A11" runat="server" href="#admin"
+                                    class="top_link"><span class="down">Admins</span></a>
+                                    <ul class="sub">
+                                        <li><a id="A12" runat="server" href="AdminAdd.aspx">Add new</a></li>
+                                        <li><a id="A13" runat="server" href="AdminView.aspx">View all</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </center>
+                    </td>
+                </tr>
+                <!-- Menu -->
+                <tr valign="top">
+                    <td colspan="2" align="center">
+                        <!-- page content -->
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <ContentTemplate>
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                        <!--end page content -->
+                        <br />
+                        <br />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <!-- Footer -->
+            <table border="0" cellpadding="0" cellspacing="0" width="1000px" class="footer">
+                <tr>
+                    <td align="left">&nbsp;&copy; Copyright The Tundra Mk Cars 2011. All rights reserved.
+                    </td>
+                    <td>Designed & Developed by <a href="https://share-web-design.com/" style="color: #baff79" target="_blank">Share Web Design</a>.
+                    </td>
+                </tr>
+            </table>
+            <!-- Footer -->
+        </center>
+    </form>
+    <script src="/Scripts/easyTooltip.min.js"></script>
+    <script type="text/javascript" language="JavaScript">
+        //<![CDATA[
+        var scrl = document.title != null ? document.title : " TundraMk Cars ";
+        function scrlsts() {
+            scrl = scrl.substring(1, scrl.length) + scrl.substring(0, 1);
+            document.title = scrl;
+            setTimeout("scrlsts()", 300);
+        }
+        scrlsts();
+        $(document).ready(function () {
+            $(function () {
+                $("td.toolTip,div.toolTip,span").easyTooltip({
+                    tooltipId: "easyTooltip2"
+                });
+            });
+        });
+        //]]>
+    </script>
+</body>
+</html>

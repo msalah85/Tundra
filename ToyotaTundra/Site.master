@@ -1,0 +1,99 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> محمد عزيز كشمولة</title>
+    <link rel="shortcut icon" href="~/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/apple-touch-icon.png">
+    <link href="//fonts.googleapis.com/earlyaccess/droidarabickufi.css" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/earlyaccess/droidarabicnaskh.css" rel="stylesheet" />
+    <link href="/Content/tundra.min.css" rel="stylesheet" />
+    <script src="Scripts/modernizr-2.6.2.min.js"></script>
+    <!--[if lt IE 9]>
+        <script src="/Scripts/iesupport/html5shiv.js"></script>
+        <script src="/Scripts/iesupport/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body id="home" class="wide">
+    <div id="preloader">
+        <div id="preloader-status">
+            <div class="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+            <div id="preloader-title">تويوتا تانـــــدرا إم. كـ</div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <header class="header fixed">
+            <div class="header-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <nav class="navigation closed clearfix">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <!-- navigation menu -->
+                                        <a href="#" class="menu-toggle-close btn"><i class="fa fa-times"></i></a>
+                                        <ul class="nav sf-menu">
+                                            <li>
+                                                <ul class="social-icons">                                                    
+                                                    <li><a href="https://www.instagram.com/tundra_mk/" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a></li>
+                                                    <li><a href="https://www.facebook.com/pg/tundramk/posts/" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#contact-us">تواصل معنا</a></li>
+                                            <li><a href="#partners">شركاؤنا</a></li>
+                                            <li><a href="#offers">عروض تاندرا</a></li>
+                                            <li><a href="#who-we-are">عن الشركة</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="swiper-scrollbar"></div>
+                            </nav>
+                        </div>
+                        <a href="#" class="menu-toggle btn ripple-effect btn-theme-transparent"><i class="fa fa-bars"></i></a>
+                        <div class="col-md-2">
+                            <div class="logo">
+                                <a href="/">
+                                    <img src="/images/logo-rentit.png" alt="تاندرا إم كـ" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="content-area">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+        <footer class="footer rtl">
+            <div class="footer-meta">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p class="btn-row text-center">
+                                <a href="https://www.facebook.com/pg/tundramk/posts/" target="_blank" class="btn btn-theme ripple-effect btn-icon-right facebook wow fadeInDown" data-wow-offset="20" data-wow-delay="100ms"><i class="fa fa-facebook"></i>فيــسبوك</a>
+                                <a href="https://www.instagram.com/tundra_mk/" target="_blank" class="btn btn-theme btn-icon-right ripple-effect instagram wow fadeInDown" data-wow-offset="20" data-wow-delay="200ms"><i class="fa fa-instagram"></i>انستجرام</a>
+                                <%--<a href="#" class="btn btn-theme btn-icon-right ripple-effect pinterest wow fadeInDown" data-wow-offset="20" data-wow-delay="300ms"><i class="fa fa-pinterest"></i>بينتيريست</a>
+                                <a href="#" class="btn btn-theme btn-icon-right ripple-effect google wow fadeInDown" data-wow-offset="20" data-wow-delay="400ms"><i class="fa fa-google"></i>جــوجل +</a>--%>
+                            </p>
+                            <div class="copyright">&copy; <%: DateTime.Now.Year %> جميع الحقوق محفوظة لشركة أرض الموصل - تويوتا تاندرا.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div id="to-top" class="to-top"><i class="fa fa-angle-up"></i></div>
+    </div>
+    <script src="/Scripts/tundra.min.js"></script>
+    <script src="/Scripts/custom.min.js"></script>
+    <script>$("#status").fadeOut(); $("#preloader").delay(200).fadeOut(200);</script>
+</body>
+</html>

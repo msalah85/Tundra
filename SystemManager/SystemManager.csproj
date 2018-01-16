@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C06C422D-B505-43D8-9813-27A918C0D673}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SystemManager</RootNamespace>
+    <AssemblyName>SystemManager</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\AddinsManager.cs" />
+    <Compile Include="Business\AdminManager.cs" />
+    <Compile Include="Business\AuctionsManager.cs" />
+    <Compile Include="Business\BuyersManager.cs" />
+    <Compile Include="Business\CapacitiesManager.cs" />
+    <Compile Include="Business\CarsManager.cs" />
+    <Compile Include="Business\CarStatusManager.cs" />
+    <Compile Include="Business\CarWorkingStatusManager.cs" />
+    <Compile Include="Business\ClearanceCompaniesManager.cs" />
+    <Compile Include="Business\ClientPaymentsManager.cs" />
+    <Compile Include="Business\ClientsManager.cs" />
+    <Compile Include="Business\ClientSubPaymentsManager.cs" />
+    <Compile Include="Business\ColorsManager.cs" />
+    <Compile Include="Business\CurrenciesManager.cs" />
+    <Compile Include="Business\DrivesManager.cs" />
+    <Compile Include="Business\EnginesManager.cs" />
+    <Compile Include="Business\ExchangeCompaniesManager.cs" />
+    <Compile Include="Business\ExpensesManager.cs" />
+    <Compile Include="Business\ExpenseTypesManager.cs" />
+    <Compile Include="Business\ImagesManager.cs" />
+    <Compile Include="Business\LanguagesManager.cs" />
+    <Compile Include="Business\LinksManager.cs" />
+    <Compile Include="Business\MarkerManager.cs" />
+    <Compile Include="Business\ModelManager.cs" />
+    <Compile Include="Business\PortShipsManager.cs" />
+    <Compile Include="Business\RegionsManager.cs" />
+    <Compile Include="Business\SafeMainManager.cs" />
+    <Compile Include="Business\SaleInvoicesManager.cs" />
+    <Compile Include="Business\ShippingCompaniesManager.cs" />
+    <Compile Include="Business\ShipsManager.cs" />
+    <Compile Include="Business\SiteCompaniesManager.cs" />
+    <Compile Include="Business\StatesManager.cs" />
+    <Compile Include="Business\StoresManager.cs" />
+    <Compile Include="Business\TowingCompaniesManager.cs" />
+    <Compile Include="Business\TransferingStatusManager.cs" />
+    <Compile Include="Business\TransmissionsManager.cs" />
+    <Compile Include="Business\TransportCompaniesManager.cs" />
+    <Compile Include="Business\WorkshopsManager.cs" />
+    <Compile Include="Business\YearsManager.cs" />
+    <Compile Include="DataAccess\DataRead.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataRead.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\DataWrite.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataWrite.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Business\StylesManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DataAccess\DataRead.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataRead.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataAccess\DataWrite.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataWrite.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataAccess\DataWrite.dbml.layout">
+      <DependentUpon>DataWrite.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataAccess\DataRead.dbml.layout">
+      <DependentUpon>DataRead.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

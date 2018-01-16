@@ -1,0 +1,62 @@
+[
+  {
+    "outputFileName": "Scripts/easyTooltip.min.js",
+    "inputFiles": [
+      "Scripts/easyTooltip.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/custom.min.js",
+    "inputFiles": [
+      "Scripts/custom.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jquery.MultiFile.min.js",
+    "inputFiles": [
+      "Scripts/jquery.MultiFile.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jquery.multiselect.min.js",
+    "inputFiles": [
+      "Scripts/jquery.multiselect.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jquery.ui.ufd.min.js",
+    "inputFiles": [
+      "Scripts/jquery.ui.ufd.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/stuHover.min.js",
+    "inputFiles": [
+      "Scripts/stuHover.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/tundra.min.js",
+    "inputFiles": [
+      "Scripts/tundra.js"
+    ]
+  },
+  {
+    "outputFileName": "App_Themes/admin/css/StyleSheet.min.css",
+    "inputFiles": [
+      "App_Themes/admin/css/StyleSheet.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/tundra.min.css",
+    "inputFiles": [
+      "Content/tundra.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/modernizr-2.6.2.min.js",
+    "inputFiles": [
+      "Scripts/modernizr-2.6.2.js"
+    ]
+  }
+]
