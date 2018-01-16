@@ -86,7 +86,7 @@ namespace SystemManager.Business
             catch { return null; }
         }
 
-        public Cars_DeleteCarResult DeleteCar(long Id, long who_add, string ip)
+        public bool DeleteCar(long Id, long who_add, string ip)
         {
             try
             {
