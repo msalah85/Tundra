@@ -46,6 +46,9 @@
     <Compile Include="Business\AuctionsManager.cs" />
     <Compile Include="Business\BuyersManager.cs" />
     <Compile Include="Business\CapacitiesManager.cs" />
+    <Compile Include="Business\CarPartsImagesManager.cs" />
+    <Compile Include="Business\CarPartsManager.cs" />
+    <Compile Include="Business\CarPartsTypesManager.cs" />
     <Compile Include="Business\CarsManager.cs" />
     <Compile Include="Business\CarStatusManager.cs" />
     <Compile Include="Business\CarWorkingStatusManager.cs" />
@@ -91,6 +94,7 @@
       <DependentUpon>DataWrite.dbml</DependentUpon>
     </Compile>
     <Compile Include="Business\StylesManager.cs" />
+    <Compile Include="Models\CarPartDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

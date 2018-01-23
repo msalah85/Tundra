@@ -105,6 +105,13 @@
                                         <li><a id="A13" runat="server" href="AdminView.aspx">View all</a></li>
                                     </ul>
                                 </li>
+                                <li class="top" id="Li1" runat="server"><a id="A2" runat="server" href="#admin"
+                                    class="top_link"><span class="down">Car Parts</span></a>
+                                    <ul class="sub">
+                                        <li><a id="A7" runat="server" href="CarPartAdd.aspx">Add new</a></li>
+                                        <li><a id="A9" runat="server" href="CarPartsView.aspx">View all</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </center>
                     </td>

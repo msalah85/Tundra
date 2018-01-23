@@ -144,7 +144,7 @@ public partial class ProjectImagesAdmin : System.Web.UI.Page
     {
         var img = new Picture();
 
-        img.CategoryType = "cars";
+        img.CategoryType = "carParts";
         img.MasterID = Convert.ToInt32(hfMasterID.Value);
         img.URL = url;
 

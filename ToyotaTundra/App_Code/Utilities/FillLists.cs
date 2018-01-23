@@ -467,5 +467,16 @@ static public class FillLists
 
         list.Items.Insert(0, new ListItem("", ""));
     }
+    public static void FillCarPartTypesList(DropDownList list)
+    {
+        list.Items.Clear();
+
+        list.DataSource = new CarPartsTypesManager().GetCarPartsTypes();
+        list.DataValueField = "Id";
+        list.DataTextField = "Name";
+        list.DataBind();
+
+        list.Items.Insert(0, new ListItem("", ""));
+    }
 
 }

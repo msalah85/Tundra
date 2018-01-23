@@ -1,11 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ToyotaTundra", "ToyotaTundra\", "{FE2D0841-4FFB-4A1C-94EC-01CA190F32D1}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		ProjectReferences = "{c06c422d-b505-43d8-9813-27a918c0d673}|SystemManager.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_14710"
 		Debug.AspNetCompiler.PhysicalPath = "ToyotaTundra\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_14710\"

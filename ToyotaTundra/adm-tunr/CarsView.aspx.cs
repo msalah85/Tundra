@@ -44,9 +44,9 @@ public partial class admin_elaf_CarsView : Page
 
         // Execute delete func.
         var expensesForThisCar = new CarsManager().DeleteCar(_ID, adminID, ClientSession.Current.IP);
-        if (expensesForThisCar != null && expensesForThisCar.CarExpensesCount > 0)
-            lblError.Text = Resources.AdminResources_en.CarDeletionHasExpenses;
-        else
+        //if (expensesForThisCar != null && expensesForThisCar.CarExpensesCount > 0)
+        //    lblError.Text = Resources.AdminResources_en.CarDeletionHasExpenses;
+        //else
             lblError.Text = Resources.AdminResources_en.SuccessDelete;
     }
 
