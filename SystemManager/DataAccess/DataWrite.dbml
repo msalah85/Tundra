@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TundraUae" Class="DataWriteDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=TundraUae;Persist Security Info=True;User ID=sa" SettingsObjectName="SystemManager.Properties.Settings" SettingsPropertyName="TundraUaeConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=TundraUae;Persist Security Info=True;User ID=sa" SettingsObjectName="SystemManager.Properties.Settings" SettingsPropertyName="TundraUaeConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Addins" Member="Addins">
     <Type Name="Addin">
       <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
@@ -151,13 +151,6 @@
       <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="Priority" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="CarPart_CarPartsImage" Member="CarPart" ThisKey="PartId" OtherKey="Id" Type="CarPart" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.CarPartTypes" Member="CarPartTypes">
-    <Type Name="CarPartType">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="CarPartType_CarPart" Member="CarParts" ThisKey="ID" OtherKey="TypeId" Type="CarPart" />
     </Type>
   </Table>
   <Table Name="dbo.CarsData" Member="CarsDatas">
@@ -805,10 +798,19 @@
       <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="Periority" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="CarPart_CarPartsImage" Member="CarPartsImages" ThisKey="Id" OtherKey="PartId" Type="CarPartsImage" />
-      <Association Name="CarPartType_CarPart" Member="CarPartType" ThisKey="TypeId" OtherKey="ID" Type="CarPartType" IsForeignKey="true" />
       <Association Name="CarsMarker_CarPart" Member="CarsMarker" ThisKey="MakerId" OtherKey="MarkerID" Type="CarsMarker" IsForeignKey="true" />
       <Association Name="CarsModel_CarPart" Member="CarsModel" ThisKey="ModelId" OtherKey="ModelID" Type="CarsModel" IsForeignKey="true" />
       <Association Name="Year_CarPart" Member="Year" ThisKey="YearId" OtherKey="YearID" Type="Year" IsForeignKey="true" />
+      <Association Name="CarPartType_CarPart" Member="CarPartType" ThisKey="TypeId" OtherKey="ID" Type="CarPartType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CarPartTypes" Member="CarPartTypes">
+    <Type Name="CarPartType">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name_En" Type="System.String" DbType="NVarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="Name_Ar" Type="System.String" DbType="NVarChar(70)" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="CarPartType_CarPart" Member="CarParts" ThisKey="ID" OtherKey="TypeId" Type="CarPart" />
     </Type>
   </Table>
   <Function Name="dbo.ShipCompanies_DeleteOne" Method="ShipCompanies_DeleteOne" IsComposable="true">

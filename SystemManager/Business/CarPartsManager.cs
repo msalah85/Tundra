@@ -59,7 +59,7 @@ namespace SystemManager.Business
                            select new CarPartDetails
                            {
                                CarPartId=carPart.Id,
-                               CarPartType= carPartType.Name,
+                               CarPartType= carPartType.Name_En,
                                MarkerNameEn=carMaker.MarkerNameEn,
                                MarkerNameAr=carMaker.MarkerNameAr,
                                ModelNameEn=carModel.TypeNameEn,
@@ -85,11 +85,11 @@ namespace SystemManager.Business
                            on carPart.YearId equals years.YearID
                            where (carMaker.MarkerNameEn.Contains(search) || carMaker.MarkerNameAr.Contains(search) ||
                                   carModel.TypeNameEn.Contains(search) || carModel.TypeNameAr.Contains(search) ||
-                                  carPartType.Name.Contains(search) || years.YearNameEn.Contains(search))
+                                  carPartType.Name_En.Contains(search) || years.YearNameEn.Contains(search))
                            select new CarPartDetails
                            {
                                CarPartId = carPart.Id,
-                               CarPartType = carPartType.Name,
+                               CarPartType = carPartType.Name_En,
                                MarkerNameEn = carMaker.MarkerNameEn,
                                MarkerNameAr = carMaker.MarkerNameAr,
                                ModelNameEn = carModel.TypeNameEn,
@@ -115,11 +115,11 @@ namespace SystemManager.Business
                            on carPart.YearId equals years.YearID
                            where(carMaker.MarkerNameEn.Contains(search)||carMaker.MarkerNameAr.Contains(search) ||
                                   carModel.TypeNameEn.Contains(search) || carModel.TypeNameAr.Contains(search) ||
-                                  carPartType.Name.Contains(search) || years.YearNameEn.Contains(search))
+                                  carPartType.Name_En.Contains(search) || years.YearNameEn.Contains(search))
                            select new CarPartDetails
                            {
                                CarPartId = carPart.Id,
-                               CarPartType = carPartType.Name,
+                               CarPartType = carPartType.Name_En,
                                MarkerNameEn = carMaker.MarkerNameEn,
                                MarkerNameAr = carMaker.MarkerNameAr,
                                ModelNameEn = carModel.TypeNameEn,

@@ -41,9 +41,6 @@ public partial class adm_tunr_CarPartsView : System.Web.UI.Page
 
     private void DeleteThisCar(int _ID)
     {
-        long adminID = ClientSession.Current.loginId;
-
-        // Execute delete func.
         new CarPartsManager().DeleteCarPart(_ID);
     }
     protected void btnSearch_Click(object sender, EventArgs e)

@@ -471,9 +471,9 @@ static public class FillLists
     {
         list.Items.Clear();
 
-        list.DataSource = new CarPartsTypesManager().GetCarPartsTypes();
+        list.DataSource = new CarPartsTypesManager().GetCarPartTypes();
         list.DataValueField = "Id";
-        list.DataTextField = "Name";
+        list.DataTextField = "Name_En";
         list.DataBind();
 
         list.Items.Insert(0, new ListItem("", ""));

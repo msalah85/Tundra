@@ -51,9 +51,6 @@ namespace SystemManager.DataAccess
     partial void InsertCarPartsImage(CarPartsImage instance);
     partial void UpdateCarPartsImage(CarPartsImage instance);
     partial void DeleteCarPartsImage(CarPartsImage instance);
-    partial void InsertCarPartType(CarPartType instance);
-    partial void UpdateCarPartType(CarPartType instance);
-    partial void DeleteCarPartType(CarPartType instance);
     partial void InsertCarsData(CarsData instance);
     partial void UpdateCarsData(CarsData instance);
     partial void DeleteCarsData(CarsData instance);
@@ -156,10 +153,13 @@ namespace SystemManager.DataAccess
     partial void InsertCarPart(CarPart instance);
     partial void UpdateCarPart(CarPart instance);
     partial void DeleteCarPart(CarPart instance);
+    partial void InsertCarPartType(CarPartType instance);
+    partial void UpdateCarPartType(CarPartType instance);
+    partial void DeleteCarPartType(CarPartType instance);
     #endregion
 		
 		public DataWriteDataContext() : 
-				base(global::SystemManager.Properties.Settings.Default.TundraMkConnectionString, mappingSource)
+				base(global::SystemManager.Properties.Settings.Default.TundraUaeConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -249,14 +249,6 @@ namespace SystemManager.DataAccess
 			get
 			{
 				return this.GetTable<CarPartsImage>();
-			}
-		}
-		
-		public System.Data.Linq.Table<CarPartType> CarPartTypes
-		{
-			get
-			{
-				return this.GetTable<CarPartType>();
 			}
 		}
 		
@@ -529,6 +521,14 @@ namespace SystemManager.DataAccess
 			get
 			{
 				return this.GetTable<CarPart>();
+			}
+		}
+		
+		public System.Data.Linq.Table<CarPartType> CarPartTypes
+		{
+			get
+			{
+				return this.GetTable<CarPartType>();
 			}
 		}
 		
@@ -4124,120 +4124,6 @@ namespace SystemManager.DataAccess
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CarPartTypes")]
-	public partial class CarPartType : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private string _Name;
-		
-		private EntitySet<CarPart> _CarParts;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    #endregion
-		
-		public CarPartType()
-		{
-			this._CarParts = new EntitySet<CarPart>(new Action<CarPart>(this.attach_CarParts), new Action<CarPart>(this.detach_CarParts));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CarPartType_CarPart", Storage="_CarParts", ThisKey="ID", OtherKey="TypeId")]
-		public EntitySet<CarPart> CarParts
-		{
-			get
-			{
-				return this._CarParts;
-			}
-			set
-			{
-				this._CarParts.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_CarParts(CarPart entity)
-		{
-			this.SendPropertyChanging();
-			entity.CarPartType = this;
-		}
-		
-		private void detach_CarParts(CarPart entity)
-		{
-			this.SendPropertyChanging();
-			entity.CarPartType = null;
 		}
 	}
 	
@@ -17576,13 +17462,13 @@ namespace SystemManager.DataAccess
 		
 		private EntitySet<CarPartsImage> _CarPartsImages;
 		
-		private EntityRef<CarPartType> _CarPartType;
-		
 		private EntityRef<CarsMarker> _CarsMarker;
 		
 		private EntityRef<CarsModel> _CarsModel;
 		
 		private EntityRef<Year> _Year;
+		
+		private EntityRef<CarPartType> _CarPartType;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -17615,10 +17501,10 @@ namespace SystemManager.DataAccess
 		public CarPart()
 		{
 			this._CarPartsImages = new EntitySet<CarPartsImage>(new Action<CarPartsImage>(this.attach_CarPartsImages), new Action<CarPartsImage>(this.detach_CarPartsImages));
-			this._CarPartType = default(EntityRef<CarPartType>);
 			this._CarsMarker = default(EntityRef<CarsMarker>);
 			this._CarsModel = default(EntityRef<CarsModel>);
 			this._Year = default(EntityRef<Year>);
+			this._CarPartType = default(EntityRef<CarPartType>);
 			OnCreated();
 		}
 		
@@ -17871,40 +17757,6 @@ namespace SystemManager.DataAccess
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CarPartType_CarPart", Storage="_CarPartType", ThisKey="TypeId", OtherKey="ID", IsForeignKey=true)]
-		public CarPartType CarPartType
-		{
-			get
-			{
-				return this._CarPartType.Entity;
-			}
-			set
-			{
-				CarPartType previousValue = this._CarPartType.Entity;
-				if (((previousValue != value) 
-							|| (this._CarPartType.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._CarPartType.Entity = null;
-						previousValue.CarParts.Remove(this);
-					}
-					this._CarPartType.Entity = value;
-					if ((value != null))
-					{
-						value.CarParts.Add(this);
-						this._TypeId = value.ID;
-					}
-					else
-					{
-						this._TypeId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("CarPartType");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CarsMarker_CarPart", Storage="_CarsMarker", ThisKey="MakerId", OtherKey="MarkerID", IsForeignKey=true)]
 		public CarsMarker CarsMarker
 		{
@@ -18007,6 +17859,40 @@ namespace SystemManager.DataAccess
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CarPartType_CarPart", Storage="_CarPartType", ThisKey="TypeId", OtherKey="ID", IsForeignKey=true)]
+		public CarPartType CarPartType
+		{
+			get
+			{
+				return this._CarPartType.Entity;
+			}
+			set
+			{
+				CarPartType previousValue = this._CarPartType.Entity;
+				if (((previousValue != value) 
+							|| (this._CarPartType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._CarPartType.Entity = null;
+						previousValue.CarParts.Remove(this);
+					}
+					this._CarPartType.Entity = value;
+					if ((value != null))
+					{
+						value.CarParts.Add(this);
+						this._TypeId = value.ID;
+					}
+					else
+					{
+						this._TypeId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("CarPartType");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -18037,6 +17923,168 @@ namespace SystemManager.DataAccess
 		{
 			this.SendPropertyChanging();
 			entity.CarPart = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CarPartTypes")]
+	public partial class CarPartType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _Name_En;
+		
+		private string _Name_Ar;
+		
+		private bool _IsDeleted;
+		
+		private EntitySet<CarPart> _CarParts;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnName_EnChanging(string value);
+    partial void OnName_EnChanged();
+    partial void OnName_ArChanging(string value);
+    partial void OnName_ArChanged();
+    partial void OnIsDeletedChanging(bool value);
+    partial void OnIsDeletedChanged();
+    #endregion
+		
+		public CarPartType()
+		{
+			this._CarParts = new EntitySet<CarPart>(new Action<CarPart>(this.attach_CarParts), new Action<CarPart>(this.detach_CarParts));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name_En", DbType="NVarChar(70) NOT NULL", CanBeNull=false)]
+		public string Name_En
+		{
+			get
+			{
+				return this._Name_En;
+			}
+			set
+			{
+				if ((this._Name_En != value))
+				{
+					this.OnName_EnChanging(value);
+					this.SendPropertyChanging();
+					this._Name_En = value;
+					this.SendPropertyChanged("Name_En");
+					this.OnName_EnChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name_Ar", DbType="NVarChar(70)")]
+		public string Name_Ar
+		{
+			get
+			{
+				return this._Name_Ar;
+			}
+			set
+			{
+				if ((this._Name_Ar != value))
+				{
+					this.OnName_ArChanging(value);
+					this.SendPropertyChanging();
+					this._Name_Ar = value;
+					this.SendPropertyChanged("Name_Ar");
+					this.OnName_ArChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsDeleted", DbType="Bit NOT NULL")]
+		public bool IsDeleted
+		{
+			get
+			{
+				return this._IsDeleted;
+			}
+			set
+			{
+				if ((this._IsDeleted != value))
+				{
+					this.OnIsDeletedChanging(value);
+					this.SendPropertyChanging();
+					this._IsDeleted = value;
+					this.SendPropertyChanged("IsDeleted");
+					this.OnIsDeletedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CarPartType_CarPart", Storage="_CarParts", ThisKey="ID", OtherKey="TypeId")]
+		public EntitySet<CarPart> CarParts
+		{
+			get
+			{
+				return this._CarParts;
+			}
+			set
+			{
+				this._CarParts.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_CarParts(CarPart entity)
+		{
+			this.SendPropertyChanging();
+			entity.CarPartType = this;
+		}
+		
+		private void detach_CarParts(CarPart entity)
+		{
+			this.SendPropertyChanging();
+			entity.CarPartType = null;
 		}
 	}
 	

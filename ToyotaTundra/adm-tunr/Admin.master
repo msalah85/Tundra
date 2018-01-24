@@ -112,6 +112,9 @@
                                         <li><a id="A9" runat="server" href="CarPartsView.aspx">View all</a></li>
                                     </ul>
                                 </li>
+                                <li class="top" id="Li2" runat="server"><a id="A10" runat="server" href="CarPartTypesView.aspx"
+                                    class="top_link"><span class="down">Car Parts</span></a>
+                                </li>
                             </ul>
                         </center>
                     </td>
