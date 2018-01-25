@@ -67,9 +67,7 @@
     <asp:ValidationSummary ID="vldSummary" runat="server" ValidationGroup="s" ShowMessageBox="true"
         ShowSummary="false" HeaderText="Please review all required (*) fields below." />
     <br />
-    <!-- basic info -->
-    <h6 class="div-right margin-right" style="padding: 0; margin: 0;">All fields (<font color="red">*</font>) mandatory.
-    </h6>
+  
     <table width="98%" cellspacing="0" cellpadding="8" border="0" class="Grid">
                              <tr valign="top" class="Grid_alertnative">
                                  <td>
@@ -113,8 +111,7 @@
         ShowSummary="false" HeaderText="Please review all required (*) fields below." />
     <br />
     <!-- basic info -->
-    <h6 class="div-right margin-right" style="padding: 0; margin: 0;">All fields (<font color="red">*</font>) mandatory.
-    </h6>
+  
     <asp:GridView ID="lvCarParts" runat="server" AutoGenerateColumns="False" 
          Width="98%" CssClass="Grid" onrowcommand="gvModels_RowCommand" 
          onpageindexchanging="gvModels_PageIndexChanging" 
