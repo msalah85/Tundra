@@ -117,9 +117,8 @@
     </h6>
     <asp:GridView ID="lvCarParts" runat="server" AutoGenerateColumns="False" 
          Width="98%" CssClass="Grid" onrowcommand="gvModels_RowCommand" 
-         PageSize="100" 
          onpageindexchanging="gvModels_PageIndexChanging" 
-         onrowdeleting="gvModels_RowDeleting" >
+         onrowdeleting="gvModels_RowDeleting" AllowPaging="True" >
         <HeaderStyle CssClass="GridHead" />
         <AlternatingRowStyle CssClass="Grid_alertnative" />
         
