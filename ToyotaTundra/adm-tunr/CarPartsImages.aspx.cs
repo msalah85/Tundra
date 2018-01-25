@@ -149,7 +149,6 @@ public partial class adm_tunr_CarPartsImages : System.Web.UI.Page
         
         img.PartId = Convert.ToInt32(hfMasterID.Value);
         img.Url = url;
-        img.IsMain = cbMain.Checked;
         if (imgObj.AddImage(img))
         {
             this.divMessage.InnerHtml += Resources.AdminResources_en.SuccessSave;

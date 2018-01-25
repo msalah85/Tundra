@@ -46,7 +46,7 @@ namespace SystemManager.Business
         }
         public List<CarPartDetails> GetAllCarParts()
         {
-            var carParts = from images in ctxWrite.CarPartsImages
+            var carParts = from images in ctxWrite.CarPartsImages.Where(x=>x.IsMain==true)
                            join carPart in ctxWrite.CarParts.Where(x => x.IsDeleted == false).OrderByDescending(x => x.CreatedDate)
                            on images.PartId equals carPart.Id
                            join carPartType in ctxWrite.CarPartTypes
@@ -74,7 +74,7 @@ namespace SystemManager.Business
         }
         public List<CarPartDetails> GetAllCarPartsBycarPartType(string search,int partTypeId)
         {
-            var carParts = from images in ctxWrite.CarPartsImages
+            var carParts = from images in ctxWrite.CarPartsImages.Where(x => x.IsMain == true)
                            join carPart in ctxWrite.CarParts.Where(x => x.IsDeleted == false).OrderByDescending(x => x.CreatedDate)
                            on images.PartId equals carPart.Id
                            join carPartType in ctxWrite.CarPartTypes.Where(x=>x.ID==partTypeId)
@@ -105,7 +105,7 @@ namespace SystemManager.Business
         }
         public List<CarPartDetails> GetAllCarParts(string search)
         {
-            var carParts = from images in ctxWrite.CarPartsImages
+            var carParts = from images in ctxWrite.CarPartsImages.Where(x => x.IsMain == true)
                            join carPart in ctxWrite.CarParts.Where(x=>x.IsDeleted==false).OrderByDescending(x => x.CreatedDate)
                            on images.PartId equals carPart.Id
                            join carPartType in ctxWrite.CarPartTypes

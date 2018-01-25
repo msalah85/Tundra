@@ -107,13 +107,6 @@
                         ErrorMessage="Please select logo to upload."></asp:RequiredFieldValidator>
                 </td>
             </tr>
-               <tr>
-                   <td >
-                </td>
-                <td >
-                   Is Main <asp:CheckBox ID="cbMain" runat="server" Checked="false" />
-                </td>
-            </tr>
             <tr>
                 <td colspan="2">
                     <br />
