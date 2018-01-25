@@ -13,12 +13,15 @@ namespace SystemManager.Business
         DataWriteDataContext ctxWrite = new DataWriteDataContext();
         DataReadDataContext ctxRead = new DataReadDataContext();
 
-        #endregion  
+        #endregion
 
         #region "Images Methods"
 
-  
 
+        public List<CarPartsImage> CarPartHasMainImage(int carPartId)
+        {
+          return ctxWrite.CarPartsImages.Where(x => x.PartId == carPartId).ToList();
+        }
 
         public bool DeleteAnImage(long imgID)
         {

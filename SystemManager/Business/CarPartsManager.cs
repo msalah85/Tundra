@@ -46,9 +46,7 @@ namespace SystemManager.Business
         }
         public List<CarPartDetails> GetAllCarParts()
         {
-            var carParts = from images in ctxWrite.CarPartsImages.Where(x=>x.IsMain==true)
-                           join carPart in ctxWrite.CarParts.Where(x => x.IsDeleted == false).OrderByDescending(x => x.CreatedDate)
-                           on images.PartId equals carPart.Id
+            var carParts = from carPart in ctxWrite.CarParts.Where(x => x.IsDeleted == false).OrderByDescending(x => x.CreatedDate)
                            join carPartType in ctxWrite.CarPartTypes
                            on carPart.TypeId equals carPartType.ID
                            join carMaker in ctxWrite.CarsMarkers
@@ -65,7 +63,6 @@ namespace SystemManager.Business
                                MarkerNameAr=carMaker.MarkerNameAr,
                                ModelNameEn=carModel.TypeNameEn,
                                ModelNameAr=carModel.TypeNameAr,
-                               ImageUrl=images.Url,
                                IsActive=carPart.IsActive,
                                Year=years.YearNameEn
                            };
@@ -74,9 +71,7 @@ namespace SystemManager.Business
         }
         public List<CarPartDetails> GetAllCarPartsBycarPartType(string search,int partTypeId)
         {
-            var carParts = from images in ctxWrite.CarPartsImages.Where(x => x.IsMain == true)
-                           join carPart in ctxWrite.CarParts.Where(x => x.IsDeleted == false).OrderByDescending(x => x.CreatedDate)
-                           on images.PartId equals carPart.Id
+            var carParts = from carPart in ctxWrite.CarParts.Where(x => x.IsDeleted == false).OrderByDescending(x => x.CreatedDate)
                            join carPartType in ctxWrite.CarPartTypes.Where(x=>x.ID==partTypeId)
                            on carPart.TypeId equals carPartType.ID
                            join carMaker in ctxWrite.CarsMarkers
@@ -96,7 +91,6 @@ namespace SystemManager.Business
                                MarkerNameAr = carMaker.MarkerNameAr,
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
-                               ImageUrl = images.Url,
                                IsActive=carPart.IsActive,
                                Year = years.YearNameEn
                            };
@@ -105,9 +99,7 @@ namespace SystemManager.Business
         }
         public List<CarPartDetails> GetAllCarParts(string search)
         {
-            var carParts = from images in ctxWrite.CarPartsImages.Where(x => x.IsMain == true)
-                           join carPart in ctxWrite.CarParts.Where(x=>x.IsDeleted==false).OrderByDescending(x => x.CreatedDate)
-                           on images.PartId equals carPart.Id
+            var carParts = from carPart in ctxWrite.CarParts.Where(x=>x.IsDeleted==false).OrderByDescending(x => x.CreatedDate)
                            join carPartType in ctxWrite.CarPartTypes
                            on carPart.TypeId equals carPartType.ID
                            join carMaker in ctxWrite.CarsMarkers
@@ -127,7 +119,6 @@ namespace SystemManager.Business
                                MarkerNameAr = carMaker.MarkerNameAr,
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
-                               ImageUrl = images.Url,
                                IsActive = carPart.IsActive,
                                Year = years.YearNameEn
                            };

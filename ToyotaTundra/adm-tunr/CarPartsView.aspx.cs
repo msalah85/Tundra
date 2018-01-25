@@ -59,6 +59,14 @@ public partial class adm_tunr_CarPartsView : System.Web.UI.Page
         var data = new CarPartsManager().GetAllCarParts();
         if (data != null)
         {
+            foreach (var item in data)
+            {
+                var model = new CarPartsImagesManager().CarPartHasMainImage(item.CarPartId);
+                if (model.Count() == 0)
+                    item.ImageUrl = "20_bQT1WmUM.jpg";
+                else
+                    item.ImageUrl = model.Where(x => x.IsMain == true).FirstOrDefault().Url;
+            }
             // show home news
             lvCarParts.DataSource = data;
             lvCarParts.DataBind();
@@ -81,6 +89,14 @@ public partial class adm_tunr_CarPartsView : System.Web.UI.Page
         }
         if (data != null)
         {
+            foreach (var item in data)
+            {
+                var model = new CarPartsImagesManager().CarPartHasMainImage(item.CarPartId);
+                if (model.Count() == 0)
+                    item.ImageUrl = "20_bQT1WmUM.jpg";
+                else
+                    item.ImageUrl = model.Where(x => x.IsMain == true).FirstOrDefault().Url;
+            }
             // show home news
             lvCarParts.DataSource = data;
             lvCarParts.DataBind();
@@ -96,6 +112,14 @@ public partial class adm_tunr_CarPartsView : System.Web.UI.Page
         var data = new CarPartsManager().GetAllCarPartsBycarPartType(txtName.Text.Trim(), id);
         if (data != null)
         {
+            foreach (var item in data)
+            {
+                var model = new CarPartsImagesManager().CarPartHasMainImage(item.CarPartId);
+                if (model.Count() == 0)
+                    item.ImageUrl = "20_bQT1WmUM.jpg";
+                else
+                    item.ImageUrl = model.Where(x => x.IsMain == true).FirstOrDefault().Url;
+            }
             // show home news
             lvCarParts.DataSource = data;
             lvCarParts.DataBind();
