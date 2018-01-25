@@ -57,7 +57,7 @@
     <table cellspacing="0" cellpadding="0" border="0" width="98%">
         <tbody>
             <tr>
-                <td class="innerContentHead">Car Parts >>  Car Parts Lisr
+                <td class="innerContentHead">Car Parts >>  Car Parts List
                 </td>
             </tr>
         </tbody>
@@ -95,7 +95,7 @@
                             </td>
                         </tr>
                     </table>
-    <asp:DataPager runat="server" ID="DataPagerCarParts" PagedControlID="lvCarParts">
+    <%--<asp:DataPager runat="server" ID="DataPagerCarParts" PagedControlID="lvCarParts">
                             <Fields>
                                 <asp:NextPreviousPagerField ShowNextPageButton="False" FirstPageText="&#171;" />
                                 <asp:NumericPagerField
@@ -107,76 +107,90 @@
                                     PreviousPageText="<<" />
                                 <asp:NextPreviousPagerField ShowPreviousPageButton="False" />
                             </Fields>
-                        </asp:DataPager>
-                        <table cellspacing="0" cellpadding="0" bordercolor="#eee" border="1" bgcolor="#f8f8f8"
-                                    width="99%" style="border-collapse: collapse;">
-                                    <tbody style="text-align: left;">
-                                        <tr>
-                                            <td valign="middle">
-                                                <table cellspacing="2" cellpadding="2" bordercolor="#eee" border="1"
-                                                    width="99%" style="border-collapse: collapse;" class="carpart">
-                                                    <tbody>
-                                                        <br />
-                                                        <tr>
-                                                            <td class="ima"></td>
-                                                            <td>Maker Name</td>
-                                                            <td>Model Name</td>
-                                                            <td>Car Part Type</td>
-                                                            <td>Year</td>
-                                                            <td>
-                                                                Actions
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                        <asp:ListView ID="lvCarParts" runat="server" ViewStateMode="Disabled"
-                            OnItemCommand="CarsListView_OnItemCommand" OnPagePropertiesChanging="lvCarParts_PagePropertiesChanging">
-                           
-                            <ItemTemplate>
-                                <table cellspacing="0" cellpadding="0" bordercolor="#eee" border="1" bgcolor="#f8f8f8"
-                                    width="99%" style="border-collapse: collapse;">
-                                    <tbody style="text-align: left;">
-                                        <tr>
-                                            <td valign="middle">
-                                                <table cellspacing="2" cellpadding="2" bordercolor="#eee" border="1"
-                                                    width="99%" style="border-collapse: collapse;" class="carpart">
-                                                    <tbody>
-                                                        <br />
-                                                        <tr>
-                                                            <td class="ima"><a id="A1" runat="server" title="Manage car pictures" href='<%# "CarPartsImages.aspx?categoryType=cars&masterId=" + Eval("CarPartId") %>'>
-                                                                <img id="Img1" border="0" width="150" alt="Click to view car details" runat="server"
-                                                                    src='<%# "~/Public/image/carParts/_thumb/" + (Eval("ImageUrl") != null  ? Eval("ImageUrl") : "no_photo.jpg") %>' /></a></td>
-                                                            <td><%# Eval("MarkerNameEn")%></td>
-                                                            <td><%# Eval("ModelNameEn")%></td>
-                                                            <td><%# Eval("CarPartType")%></td>
-                                                            <td><%# Eval("Year")%></td>
-                                                            <td class="act">
-                                                                <!-- controls only for emp. who add -->
-                                                                <div id="Div1" class="div-right">
-                                                                    <a class="ajaxcolorbox" href="CarPartAdd.aspx?id=<%# Eval("CarPartId") %>">Edit</a>
-                                                                    &nbsp;|&nbsp;&nbsp;|&nbsp;
-                                                                    <asp:LinkButton
-                                                                        OnClientClick="return DeleteConfirmation();" ID="LinkButton2" CommandArgument='<%# Eval("CarPartId") %>'
-                                                                        CommandName="DeleteItem" runat="server">Delete</asp:LinkButton>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </ItemTemplate>
-                            <ItemSeparatorTemplate>
-                                <hr />
-                            </ItemSeparatorTemplate>
-                        </asp:ListView>
+                        </asp:DataPager>--%>
+                          <asp:Label ID="Label2" runat="server" ForeColor="red"></asp:Label>
+    <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="s" ShowMessageBox="true"
+        ShowSummary="false" HeaderText="Please review all required (*) fields below." />
+    <br />
+    <!-- basic info -->
+    <h6 class="div-right margin-right" style="padding: 0; margin: 0;">All fields (<font color="red">*</font>) mandatory.
+    </h6>
+    <asp:GridView ID="lvCarParts" runat="server" AutoGenerateColumns="False" 
+         Width="98%" CssClass="Grid" onrowcommand="gvModels_RowCommand" 
+         PageSize="100" 
+         onpageindexchanging="gvModels_PageIndexChanging" 
+         onrowdeleting="gvModels_RowDeleting" >
+        <HeaderStyle CssClass="GridHead" />
+        <AlternatingRowStyle CssClass="Grid_alertnative" />
+        
+        <Columns>
+            <asp:TemplateField>
+                <ItemTemplate>  
+                    <br />                  
+                        <img id="Img1" border="0" width="75" alt="Click to view car details" runat="server"
+                         src='<%# "~/Public/image/carParts/_thumb/" + (Eval("ImageUrl") != null  ? Eval("ImageUrl") : "no_photo.jpg") %>' />                  
+                </ItemTemplate>
+                <HeaderTemplate>                    
+                      
+                </HeaderTemplate>
 
+            </asp:TemplateField> 
+             <asp:TemplateField>
+                <ItemTemplate>   
+                                     
+                       <%# Eval("IsActive")%>                  
+                </ItemTemplate>
+                <HeaderTemplate>                    
+                        Active 
+                </HeaderTemplate>
+            </asp:TemplateField> 
+            <asp:TemplateField>
+                <ItemTemplate>   
+                                     
+                       <%# Eval("MarkerNameEn")%>                  
+                </ItemTemplate>
+                <HeaderTemplate>                    
+                        Maker Name 
+                </HeaderTemplate>
+            </asp:TemplateField> 
+             <asp:TemplateField>
+                <ItemTemplate>                    
+                        <%# Eval("ModelNameEn")%>                  
+                </ItemTemplate>
+                <HeaderTemplate>                    
+                        Model Name 
+                </HeaderTemplate>
+            </asp:TemplateField> 
+              <asp:TemplateField>
+                <ItemTemplate>                    
+                        <%# Eval("Year")%>                  
+                </ItemTemplate>
+                <HeaderTemplate>                    
+                        Model Name 
+                </HeaderTemplate>
+            </asp:TemplateField> 
+            <asp:TemplateField ItemStyle-Width="40">
+                <ItemTemplate>                    
+                        <asp:ImageButton ID="lbEdit"
+                         CommandArgument='<%# Eval("CarPartId") %>' CssClass="showPeriodMsgPopup"  Width="23" BorderStyle="None"
+                         CommandName="EditItem" runat="server" ToolTip="Edit" ImageUrl="~/App_Themes/admin/images/document_edit.png" />
+                         
+                </ItemTemplate>
+                <HeaderTemplate>
+                    Edit    
+                </HeaderTemplate>
+            </asp:TemplateField>                      
+            <asp:TemplateField HeaderText="Delete" ItemStyle-Width="40">
+                 <ItemTemplate>                  
+                     <asp:ImageButton ID="LinkButton1"
+                         CommandArgument='<%# Eval("CarPartId") %>'  Width="23" BorderStyle="None" ToolTip="Delete"
+                         CommandName="Delete" OnClientClick="return confirm('Are you sure you want to delete this event?');"
+                          runat="server" ImageUrl="~/App_Themes/admin/images/delete.png" />
+                 </ItemTemplate>
+               </asp:TemplateField>     
+        </Columns>
+        <PagerSettings Mode="NumericFirstLast" />
+    </asp:GridView>
     <!-- end basic info -->
     <br />
     <asp:HiddenField ID="hfID" runat="server" />

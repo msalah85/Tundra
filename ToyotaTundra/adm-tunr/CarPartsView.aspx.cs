@@ -19,27 +19,30 @@ public partial class adm_tunr_CarPartsView : System.Web.UI.Page
         }
 
     }
-    protected void CarsListView_OnItemCommand(object sender, ListViewCommandEventArgs e)
+    protected void gvModels_RowCommand(object sender, GridViewCommandEventArgs e)
     {
-        // Listview delete item.
-        if (String.Equals(e.CommandName, "DeleteItem"))
+        if (e.CommandName == "Delete")
         {
-            //ObjectDataSource1.DeleteParameters.Clear();
             // Get id to delete.
             int _ID = Convert.ToInt32(e.CommandArgument);
-            DeleteThisCar(_ID);
-
-            // delete item from listview.s
-            if (e.Item.DataItemIndex >= 0)
-                lvCarParts.DeleteItem(e.Item.DataItemIndex); //lvCarsList.SelectedIndex);
-            ListViewDataItem dataItem = (ListViewDataItem)e.Item;
-            if (dataItem != null)
-                lvCarParts.Items.Remove(dataItem);
-
+            DeletePartCar(_ID);
+        }
+        else if (e.CommandName == "EditItem")
+        {
+            hfID.Value = e.CommandArgument.ToString();
+            Response.Redirect("CarPartAdd.aspx?id=" + hfID.Value);
         }
     }
-
-    private void DeleteThisCar(int _ID)
+    protected void gvModels_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        lvCarParts.PageIndex = e.NewPageIndex;
+        ShowCarPartsContent();
+    }
+    protected void gvModels_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        ShowCarPartsContent();
+    }
+    private void DeletePartCar(int _ID)
     {
         new CarPartsManager().DeleteCarPart(_ID);
     }
@@ -100,8 +103,8 @@ public partial class adm_tunr_CarPartsView : System.Web.UI.Page
 
     protected void lvCarParts_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
     {
-        this.DataPagerCarParts.SetPageProperties(e.StartRowIndex,
-            e.MaximumRows, false);
+        //this.DataPagerCarParts.SetPageProperties(e.StartRowIndex,
+        //    e.MaximumRows, false);
         ShowCarPartsContent();
     }
     private void FillOptionsLists()

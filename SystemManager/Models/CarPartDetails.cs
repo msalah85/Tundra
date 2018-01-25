@@ -17,5 +17,6 @@ namespace SystemManager.Models
         public string Year { get; set; }
         public string Price { get; set; }
         public string ImageUrl { get; set; }
+        public bool IsActive { get; set; }
     }
 }

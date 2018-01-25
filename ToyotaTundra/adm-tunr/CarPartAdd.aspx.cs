@@ -47,7 +47,7 @@ public partial class adm_tunr_CarPartAdd : System.Web.UI.Page
             var result = new CarPartsManager().SaveCarPart(CarToSave);
             if (result != null)
             {
-                //    //go to Cars images list.
+                //go to Cars images list.
                 string url = ResolveClientUrl("CarPartsImages.aspx?categoryType=cars&masterId=") + result; //"CarsView.aspx";
                 Response.Redirect(url);
 

@@ -13,7 +13,7 @@ namespace SystemManager.Business
         DataWriteDataContext ctxWrite = new DataWriteDataContext();
         DataReadDataContext ctxRead = new DataReadDataContext();
 
-        #endregion
+        #endregion  
 
         #region "Images Methods"
 
@@ -25,11 +25,34 @@ namespace SystemManager.Business
             try
             {
                 var image = ctxWrite.CarPartsImages.Where(x => x.Id == imgID).FirstOrDefault();
-                ctxWrite.CarPartsImages.DeleteOnSubmit(image);
+                if (image.IsMain == true)
+                {
+                    ctxWrite.CarPartsImages.DeleteOnSubmit(image);
+                    ctxWrite.CarPartsImages.FirstOrDefault().IsMain = true;
+                }
+                else
+                { ctxWrite.CarPartsImages.DeleteOnSubmit(image); }
                 ctxWrite.SubmitChanges();
                 return true;
             }
             catch { return false; }
+        }
+        public bool RessetMainImage(long imgID)
+        {
+            try
+            {
+                var lastMain = ctxWrite.CarPartsImages.Where(x => x.IsMain == true).FirstOrDefault();
+                lastMain.IsMain = false;
+                var image = ctxWrite.CarPartsImages.Where(x => x.Id == imgID).FirstOrDefault();
+                image.IsMain = true;
+                ctxWrite.SubmitChanges();
+                return true;
+            }
+            catch { return false; }
+        }
+        public IList<CarPartsImage> GetImagesListByPartId(int masterId)
+        {
+            return ctxWrite.CarPartsImages.Where(x=>x.PartId==masterId).ToList();
         }
         public bool AddNewImage(int masterID, string url)
         {
@@ -51,6 +74,11 @@ namespace SystemManager.Business
         {
             try
             {
+                var carPartImage = ctxWrite.CarPartsImages.Where(x => x.IsMain == true).FirstOrDefault();
+                if (carPartImage == null)
+                    imgToAdd.IsMain = true;
+                else
+                    imgToAdd.IsMain = false;
                 ctxWrite.CarPartsImages.InsertOnSubmit(imgToAdd);
                 ctxWrite.SubmitChanges();
 

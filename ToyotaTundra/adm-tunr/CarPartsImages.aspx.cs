@@ -16,7 +16,7 @@ public partial class adm_tunr_CarPartsImages : System.Web.UI.Page
 
     #endregion
 
-    #region "Event Handler"
+        #region "Event Handler"
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -76,7 +76,7 @@ public partial class adm_tunr_CarPartsImages : System.Web.UI.Page
             if (imgID != 0 && masterID != 0)
             {
                 // perform reset image action in db.            
-                if (imgObj.ResetMainImage(masterID, imgID, "cars"))
+                if (new CarPartsImagesManager().RessetMainImage(imgID))
                 {
                     // Refresh images list.
                     FillImagesList(masterID);
@@ -162,10 +162,10 @@ public partial class adm_tunr_CarPartsImages : System.Web.UI.Page
     {
         try
         {
-            var imgInfo = new FileInfo(Server.MapPath("~/Public/image/cars/") + imgName);
+            var imgInfo = new FileInfo(Server.MapPath("~/Public/image/carParts/") + imgName);
 
             if (imgInfo.Exists)
-                File.Delete(Server.MapPath("~/Public/image/cars/") + imgName);
+                File.Delete(Server.MapPath("~/Public/image/carParts/") + imgName);
             else
                 throw new FileNotFoundException();
 
@@ -181,8 +181,8 @@ public partial class adm_tunr_CarPartsImages : System.Web.UI.Page
         DataList1.DataSource = null;
         DataList1.DataBind();
 
-        //DataList1.DataSource = imgObj("cars", msterID);
-        //DataList1.DataBind();
+        DataList1.DataSource = new CarPartsImagesManager().GetImagesListByPartId(msterID);
+        DataList1.DataBind();
     }
 
     #endregion

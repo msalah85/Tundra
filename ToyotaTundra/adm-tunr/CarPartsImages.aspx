@@ -43,22 +43,22 @@
                             OnItemDataBound="DataList1_ItemDataBound">
                             <ItemTemplate>
                                 <center>
-                                    <a runat="server" href='<%# "~/Public/image/cars/" + (Eval("URL") != null ? Eval("URL") : "no_photo.jpg") %>' target="_blank">
-                                        <asp:Image ID="Image1" runat="server" ImageUrl='<%# "~/Public/image/cars/_thumb/" + (Eval("URL") != null ? Eval("URL") : "no_photo.jpg") %>' Width="100px" />
+                                    <a runat="server" href='<%# "~/Public/image/carParts/" + (Eval("Url") != null ? Eval("Url") : "no_photo.jpg") %>' target="_blank">
+                                        <asp:Image ID="Image1" runat="server" ImageUrl='<%# "~/Public/image/carParts/_thumb/" + (Eval("Url") != null ? Eval("Url") : "no_photo.jpg") %>' Width="100px" />
                                 </center>
                                 </a>
                             <center>
                                 <asp:LinkButton ID="ResetMainPic" CommandName="ResetMainImage"
-                                    OnClientClick="return ResetConfirmation();" CommandArgument='<%# Eval("id") %>'
+                                    OnClientClick="return ResetConfirmation();" CommandArgument='<%# Eval("Id") %>'
                                     runat="server">Main Picture</asp:LinkButton></center>
 
                                 <center>
-                                    <asp:Label ID="lblFlag" runat="server" ToolTip='<%# Eval("MainImage") %>'
+                                    <asp:Label ID="lblFlag" runat="server" ToolTip='<%# Eval("IsMain") %>'
                                         Font-Bold="False" Font-Italic="True" ForeColor="#CC6600"></asp:Label></center>
 
                                 <center>
-                                    <asp:LinkButton ID="itemToDelete" CommandName="Delete" ToolTip='<%# Eval("URL") %>'
-                                        OnClientClick="return DeleteConfirmation();" CommandArgument='<%# Eval("id") %>'
+                                    <asp:LinkButton ID="itemToDelete" CommandName="Delete" ToolTip='<%# Eval("Url") %>'
+                                        OnClientClick="return DeleteConfirmation();" CommandArgument='<%# Eval("Id") %>'
                                         runat="server">Delete Picture</asp:LinkButton></center>
                                 <br />
                             </ItemTemplate>
