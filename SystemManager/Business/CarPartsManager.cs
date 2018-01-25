@@ -46,7 +46,7 @@ namespace SystemManager.Business
         }
         public List<CarPartDetails> GetAllCarParts()
         {
-            var carParts = from images in ctxWrite.CarPartsImages.Where(x=>x.IsMain==true)
+            var carParts = from images in ctxWrite.CarPartsImages
                            join carPart in ctxWrite.CarParts.Where(x => x.IsDeleted == false).OrderByDescending(x => x.CreatedDate)
                            on images.PartId equals carPart.Id
                            join carPartType in ctxWrite.CarPartTypes
@@ -128,6 +128,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                ImageUrl = images.Url,
+                               IsActive = carPart.IsActive,
                                Year = years.YearNameEn
                            };
 
