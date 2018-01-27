@@ -64,7 +64,8 @@ namespace SystemManager.Business
                                ModelNameEn=carModel.TypeNameEn,
                                ModelNameAr=carModel.TypeNameAr,
                                IsActive=carPart.IsActive,
-                               Year=years.YearNameEn
+                               Description= carPart.Description,
+                               Year =years.YearNameEn
                            };
 
             return carParts.ToList();
@@ -92,6 +93,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive=carPart.IsActive,
+                               Description = carPart.Description,
                                Year = years.YearNameEn
                            };
 
@@ -120,6 +122,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
+                               Description = carPart.Description,
                                Year = years.YearNameEn
                            };
 

@@ -145,7 +145,7 @@
                     <li class=""><a href="#tab-x1" data-toggle="tab">تاندرا جديدة</a></li>
                     <li class="active"><a href="#tab-x2" data-toggle="tab">تاندرا مستعملة</a></li>
                     <li class=""><a href="#tab-x3" data-toggle="tab">تاندرا مصدومة</a></li>
-                    <li class=""><a href="#tab-x4" data-toggle="tab">قطع غيار تاندرا</a></li>
+                    <li class=""><a href="CarPartTypeSite.aspx">قطع غيار تاندرا</a></li>
                 </ul>
             </div>
             <div class="tab-content wow fadeInUp" data-wow-offset="70" data-wow-delay="500ms">

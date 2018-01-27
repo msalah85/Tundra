@@ -73,6 +73,7 @@
         <div class="content-area">
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />
         </div>
+
         <footer class="footer rtl">
             <div class="footer-meta">
                 <div class="container">

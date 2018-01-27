@@ -1,0 +1,360 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="SiteCarPart.master.cs" Inherits="SiteCarPart" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> محمد عزيز كشمولة</title>
+    <link rel="shortcut icon" href="~/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/apple-touch-icon.png">
+    <link href="//fonts.googleapis.com/earlyaccess/droidarabickufi.css" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/earlyaccess/droidarabicnaskh.css" rel="stylesheet" />
+    <link href="/Content/tundra.min.css" rel="stylesheet" />
+    <script src="Scripts/modernizr-2.6.2.min.js"></script>
+    <!--[if lt IE 9]>
+        <script src="/Scripts/iesupport/html5shiv.js"></script>
+        <script src="/Scripts/iesupport/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body id="home" class="wide">
+    <div id="preloader">
+        <div id="preloader-status">
+            <div class="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+            <div id="preloader-title">تويوتا تانـــــدرا إم. كـ</div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <header class="header fixed">
+            <div class="header-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <nav class="navigation closed clearfix">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <!-- navigation menu -->
+                                        <a href="#" class="menu-toggle-close btn"><i class="fa fa-times"></i></a>
+                                        <ul class="nav sf-menu">
+                                            <li>
+                                                <ul class="social-icons">                                                    
+                                                    <li><a href="https://www.instagram.com/tundra_mk/" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a></li>
+                                                    <li><a href="https://www.facebook.com/pg/tundramk/posts/" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#contact-us">تواصل معنا</a></li>
+                                            <li><a href="#partners">شركاؤنا</a></li>
+                                            <li><a href="#who-we-are">عن الشركة</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="swiper-scrollbar"></div>
+                            </nav>
+                        </div>
+                        <a href="#" class="menu-toggle btn ripple-effect btn-theme-transparent"><i class="fa fa-bars"></i></a>
+                        <div class="col-md-2">
+                            <div class="logo">
+                                <a href="/">
+                                    <img src="/images/logo-rentit.png" alt="تاندرا إم كـ" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="content-area">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            <section id="who-we-are" class="page-section dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 wow fadeInLeft" data-wow-offset="200" data-wow-delay="300ms">
+                    <div class="owl-carousel img-carousel">
+                        <div class="item">
+                            <a href="/content/cars/tundramk-1.jpg" data-gal="prettyPhoto">
+                                <img class="img-responsive" src="/content/cars/tundra-mk-1.jpg" alt="" /></a>
+                        </div>
+                        <div class="item">
+                            <a href="/content/cars/tundramk-1.jpg" data-gal="prettyPhoto">
+                                <img class="img-responsive" src="/content/cars/tundra-mk-2.jpg" alt="" /></a>
+                        </div>
+                        <div class="item">
+                            <a href="/content/cars/tundramk-1.jpg" data-gal="prettyPhoto">
+                                <img class="img-responsive" src="/content/cars/tundra-mk-3.jpg" alt="" /></a>
+                        </div>
+                        <div class="item">
+                            <a href="/content/cars/tundramk-1.jpg" data-gal="prettyPhoto">
+                                <img class="img-responsive" src="/content/cars/tundra-mk-1.jpg" alt="" /></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 wow fadeInRight rtl" data-wow-offset="200" data-wow-delay="100ms">
+                    <h2 class="section-title text-right">
+                        <small>عن الشركة</small>
+                        <span>من نحـــن؟</span>
+                    </h2>
+                    <p>
+                        تقدم شركة محمد عزيز كشمولة سيارات تاندرا إحدي طرازات سيارات النقل التي تنتجها شركة تويوتا للسيارات.
+بدأ إنتاج تندرا عام 1999م كطراز 2000 وهي سيارة نقل متوسطة في جيلها الأول حتى عام 2006م وسيارة نقل كبيرة في جيلها الثاني حتى الآن. يشترك الجيل الأول منها في كثير من الخصائص مع سابقتها طراز تي100 وفي الطراز الأصغر تاكوما، إلا أن طراز تندرا يتميز بأهم ميزة وهي المحرك V8 الأمر الذي جعل منها سيارة منافسة جداً لمثيلاتها من الطرازات الأمريكية كطراز جي إم سي سيرا التي تغلبت عليه في المبيعات الشهرية إلا أنها ما زالت خلف طراز فورد إف-150 المحتل الصدارة في هذه الفئة.
+للسيارة جيلان وتزود بمحركين أحدهما V6 والآخر V8.
+                    </p>
+                    <ul class="list-icons">
+                        <li><i class="fa fa-check-circle"></i>تاندرا إم. كـ للسيارات الجديدة والمستعملة.</li>
+                        <li><i class="fa fa-check-circle"></i>تاندرا إم. كـ للسيارات المصدومة وقطع الغيار.</li>
+                    </ul>
+                    <p class="btn-row">
+                        <a href="#offers" class="btn btn-theme ripple-effect btn-theme-md">عرض جميع السيارات</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+              <span id="partners"></span>
+    <section class="page-section image rtl">
+        <div class="container">
+            <h2 class="section-title wow fadeInUp" data-wow-offset="70" data-wow-delay="500ms">
+                <span>شـــركات صديــقة</span>
+            </h2>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 wow fadeInDown" data-wow-offset="200" data-wow-delay="100ms">
+                    <div class="thumbnail thumbnail-counto no-border no-padding">
+                        <a href="https://iraqusedcars.ae" data-toggle="tooltip" data-placement="top" data-original-title="شركة العراق لتجارة السيارات المستعملة وقطع غيارها" target="_blank" title="شركة العراق لتجارة السيارات المستعملة وقطع غيارها">
+                            <div class="caption">
+                                <div class="caption-icon"><i class="fa fa-flag"></i></div>
+                                <div class="caption-number">شركة العراق</div>
+                                <h4 class="caption-title">لتجارة السيارات المستعملة</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 wow fadeInDown" data-wow-offset="200" data-wow-delay="200ms">
+                    <div class="thumbnail thumbnail-counto no-border no-padding">
+                        <a href="https://www.facebook.com/KoreanMotorUAE/" target="_blank" data-toggle="tooltip" data-placement="top" data-original-title="شركة العراق لتجارة السيارات المستعملة وقطع غيارها" title="شركة المحرك الكوري لتجارة قطع الغيار الجديدة">
+                            <div class="caption">
+                                <div class="caption-icon"><i class="fa fa-car"></i></div>
+                                <div class="caption-number">شركة المحرك الكوري</div>
+                                <h4 class="caption-title">لتجارة قطع غيار السيارات</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 wow fadeInDown" data-wow-offset="200" data-wow-delay="300ms">
+                    <div class="thumbnail thumbnail-counto no-border no-padding">
+                        <a href="https://www.facebook.com/profile.php?id=100009187760867" target="_blank" data-toggle="tooltip" data-placement="top" data-original-title="شركة العراق لتجارة السيارات المستعملة وقطع غيارها" title="شركة أمريكا لتجارة السيارات المستعملة وقطع غيارها">
+                            <div class="caption">
+                                <div class="caption-icon"><i class="fa fa-flag"></i></div>
+                                <div class="caption-number">شركة أمريكا</div>
+                                <h4 class="caption-title">لتجارة السيارات المستعملة</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 wow fadeInDown" data-wow-offset="200" data-wow-delay="400ms">
+                    <div class="thumbnail thumbnail-counto no-border no-padding">
+                        <div class="caption">
+                            <div class="caption-icon"><i class="fa fa-car"></i></div>
+                            <div class="caption-number">شركة الدرينى</div>
+                            <h4 class="caption-title">لصيانة السيارات</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="faqs" class="page-section rtl">
+        <div class="container">
+            <h2 class="section-title wow fadeInDown" data-wow-offset="200" data-wow-delay="100ms">
+                <small>الاطلاع على استفسارات الزبائن المتكررة</small>
+                <span>الاسئلة المتكررة</span>
+            </h2>
+            <div class="row">
+                <div class="col-md-12 wow fadeInLeft" data-wow-offset="200" data-wow-delay="200ms">
+                    <!-- FAQ -->
+                    <div class="panel-group accordion" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading1">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                        <span class="dot"></span>ما هى خطوات الحصول على سيارة؟
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading1">
+                                <div class="panel-body">
+                                    خطوات الحصول على سيارة .. خطوات الحصول على سيارة .. خطوات الحصول على سيارة .. خطوات الحصول على سيارة .. خطوات الحصول على سيارة .. خطوات الحصول على سيارة .. 
+                                           
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading2">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                        <span class="dot"></span>ما هى طرق السداد المتاحة لديكم؟
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                                <div class="panel-body">
+                                    طرق السداد المتاحة..طرق السداد المتاحة..طرق السداد المتاحة.. طرق السداد المتاحة..طرق السداد المتاحة..طرق السداد المتاحة.. طرق السداد المتاحة..طرق السداد المتاحة..طرق السداد المتاحة..                                            
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading3">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                        <span class="dot"></span>هل يمكننى صيانة سيارتى المصدومة لديكم؟
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
+                                <div class="panel-body">
+                                    صيانة سيارتى المصدومة.. صيانة سيارتى المصدومة.. صيانة سيارتى المصدومة.. صيانة سيارتى المصدومة.. صيانة سيارتى المصدومة.. صيانة سيارتى المصدومة.. صيانة سيارتى المصدومة..                                            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="page-section image subscribe rtl" id="subscription">
+        <div class="container">
+            <h2 class="section-title wow fadeInDown" data-wow-offset="200" data-wow-delay="100ms">
+                <small>شركة محمد عزيز كشمولة ، تاندرا إم كـ.</small>
+                <span>الاشتراك فى القائمة البريدية</span>
+            </h2>
+            <div class="row wow fadeInDown" data-wow-offset="200" data-wow-delay="200ms">
+                <div class="col-md-8 col-md-offset-2">
+                    <p class="text-center">شركة محمد عزيز كشمولة ، تاندرا إم كـ.</p>
+                    <form action="#" class="form-subscribe">
+                        <div class="form-group">
+                            <label for="formSubscribeEmail" class="sr-only">ادخل بريد الإلكترونى</label>
+                            <input type="email" class="form-control" id="formSubscribeEmail" placeholder="ادخل بريد الإلكترونى" title="مطلوب ادخال بريدك الإلكترونى" />
+                        </div>
+                        <button type="submit" class="btn btn-submit btn-theme ripple-effect btn-theme-dark">اشترك الان</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact-us" class="page-section contact dark rtl">
+        <div class="container">
+            <h2 class="section-title wow fadeInDown" data-wow-offset="200" data-wow-delay="100ms">
+                <small>يسعدنا تواصلك معنا</small>
+                <span>بيانات الاتصال</span>
+            </h2>
+            <div class="row">
+                <div class="col-md-6 wow fadeInLeft" data-wow-offset="200" data-wow-delay="200ms">
+                    <form name="contact-form" method="post" action="#" class="contact-form" id="contact-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="outer required">
+                                    <div class="form-group af-inner has-icon">
+                                        <label class="sr-only" for="email">البريد الإلكترونى</label>
+                                        <input
+                                            type="text" name="email" id="email" placeholder="البريد الإلكترونى" value="" size="30"
+                                            data-toggle="tooltip" title="برجاء ادخال البريد الإلكترونى"
+                                            class="form-control placeholder" />
+                                        <span class="form-control-icon"><i class="fa fa-envelope"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="outer required">
+                                    <div class="form-group af-inner has-icon">
+                                        <label class="sr-only" for="name">الاسم</label>
+                                        <input
+                                            type="text" name="name" id="name" placeholder="الاسم" value="" size="30"
+                                            data-toggle="tooltip" title="برجاء ادخال الاسم"
+                                            class="form-control placeholder" />
+                                        <span class="form-control-icon"><i class="fa fa-user"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outer required">
+                            <div class="form-group af-inner has-icon">
+                                <label class="sr-only" for="subject">الهاتف</label>
+                                <input type="tel" name="subject" id="subject" placeholder="الهاتف" value="" size="30"
+                                    data-toggle="tooltip" title="برجاء ادخال الهاتف"
+                                    class="form-control placeholder" />
+                                <span class="form-control-icon"><i class="fa fa-phone"></i></span>
+                            </div>
+                        </div>
+                        <div class="form-group af-inner has-icon">
+                            <label class="sr-only" for="input-message">الرسالة</label>
+                            <textarea
+                                name="message" id="input-message" placeholder="الرسالة" rows="4" cols="50"
+                                data-toggle="tooltip" title="برجاء ادخال الرسالة"
+                                class="form-control placeholder"></textarea>
+                            <span class="form-control-icon"><i class="fa fa-bars"></i></span>
+                        </div>
+                        <div class="outer required">
+                            <div class="form-group af-inner">
+                                <input type="submit" name="submit" class="form-button form-button-submit btn btn-block btn-theme ripple-effect btn-theme-dark" id="submit_btn" value="ارســـل رسالــة" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6 wow fadeInRight" data-wow-offset="200" data-wow-delay="200ms">
+                    <p>شركة أرضل الموصل ، تاندرا إم كـ.</p>
+                    <ul class="media-list contact-list">
+                        <li class="media">
+                            <div class="media-left"><i class="fa fa-location-arrow"></i></div>
+                            <div class="media-body">العنوان: المنطقة الصناعية الرابعة ، خلف وكالة ايسوزو</div>
+                        </li>
+                        <li class="media">
+                            <div class="media-left"><i class="fa fa"></i></div>
+                            <div class="media-body">الشارقة ، الامارات العربية المتحدة</div>
+                        </li>
+                        <li class="media">
+                            <div class="media-left"><i class="fa fa-phone"></i></div>
+                            <div class="media-body">جوال: 00971564410453</div>
+                        </li>
+                        <li class="media">
+                            <div class="media-left"><i class="fa fa-envelope"></i></div>
+                            <div class="media-body">البريد الإلكتروني: mkautocar@yahoo.com</div>
+                        </li>
+                        <li class="media">
+                            <div class="media-left"><i class="fa fa-map-marker"></i></div>
+                            <a href="https://goo.gl/maps/aedjzVZ7Ss62" target="_blank" class="media-body">عرض الموقع على الخريطة</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+        </div>
+        <footer class="footer rtl">
+            <div class="footer-meta">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p class="btn-row text-center">
+                                <a href="https://www.facebook.com/pg/tundramk/posts/" target="_blank" class="btn btn-theme ripple-effect btn-icon-right facebook wow fadeInDown" data-wow-offset="20" data-wow-delay="100ms"><i class="fa fa-facebook"></i>فيــسبوك</a>
+                                <a href="https://www.instagram.com/tundra_mk/" target="_blank" class="btn btn-theme btn-icon-right ripple-effect instagram wow fadeInDown" data-wow-offset="20" data-wow-delay="200ms"><i class="fa fa-instagram"></i>انستجرام</a>
+                                <%--<a href="#" class="btn btn-theme btn-icon-right ripple-effect pinterest wow fadeInDown" data-wow-offset="20" data-wow-delay="300ms"><i class="fa fa-pinterest"></i>بينتيريست</a>
+                                <a href="#" class="btn btn-theme btn-icon-right ripple-effect google wow fadeInDown" data-wow-offset="20" data-wow-delay="400ms"><i class="fa fa-google"></i>جــوجل +</a>--%>
+                            </p>
+                            <div class="copyright">&copy; <%: DateTime.Now.Year %> جميع الحقوق محفوظة لشركة أرض الموصل - تويوتا تاندرا.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div id="to-top" class="to-top"><i class="fa fa-angle-up"></i></div>
+    </div>
+    <script src="/Scripts/tundra.min.js"></script>
+    <script src="/Scripts/custom.min.js"></script>
+    <script>$("#status").fadeOut(); $("#preloader").delay(200).fadeOut(200);</script>
+</body>
+</html>

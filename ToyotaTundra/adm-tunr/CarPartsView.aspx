@@ -93,19 +93,6 @@
                             </td>
                         </tr>
                     </table>
-    <%--<asp:DataPager runat="server" ID="DataPagerCarParts" PagedControlID="lvCarParts">
-                            <Fields>
-                                <asp:NextPreviousPagerField ShowNextPageButton="False" FirstPageText="&#171;" />
-                                <asp:NumericPagerField
-                                    ButtonCount="10"
-                                    CurrentPageLabelCssClass="PagerCurrent"
-                                    NextPreviousButtonCssClass="PagerNormal"
-                                    NumericButtonCssClass="PagerNormal"
-                                    NextPageText=">>"
-                                    PreviousPageText="<<" />
-                                <asp:NextPreviousPagerField ShowPreviousPageButton="False" />
-                            </Fields>
-                        </asp:DataPager>--%>
                           <asp:Label ID="Label2" runat="server" ForeColor="red"></asp:Label>
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="s" ShowMessageBox="true"
         ShowSummary="false" HeaderText="Please review all required (*) fields below." />
