@@ -5,6 +5,7 @@ using System.Text;
 
 namespace SystemManager.Models
 {
+    [Serializable]
     public class CarPartDetails
     {
         public int CarPartId { get; set; }

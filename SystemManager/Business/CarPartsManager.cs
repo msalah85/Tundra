@@ -41,7 +41,7 @@ namespace SystemManager.Business
                 carPart.IsDeleted = false;
                 ctxWrite.CarParts.InsertOnSubmit(carPart);
             }
-                ctxWrite.SubmitChanges();
+            ctxWrite.SubmitChanges();
             return carPart.Id;
         }
         public List<CarPartDetails> GetAllCarParts()
@@ -57,23 +57,52 @@ namespace SystemManager.Business
                            on carPart.YearId equals years.YearID
                            select new CarPartDetails
                            {
-                               CarPartId=carPart.Id,
-                               CarPartType= carPartType.Name_En,
-                               MarkerNameEn=carMaker.MarkerNameEn,
-                               MarkerNameAr=carMaker.MarkerNameAr,
-                               ModelNameEn=carModel.TypeNameEn,
-                               ModelNameAr=carModel.TypeNameAr,
-                               IsActive=carPart.IsActive,
-                               Description= carPart.Description,
-                               Year =years.YearNameEn
+                               CarPartId = carPart.Id,
+                               CarPartType = carPartType.Name_En,
+                               MarkerNameEn = carMaker.MarkerNameEn,
+                               MarkerNameAr = carMaker.MarkerNameAr,
+                               ModelNameEn = carModel.TypeNameEn,
+                               ModelNameAr = carModel.TypeNameAr,
+                               IsActive = carPart.IsActive,
+                               Price = carPart.Price.ToString(),
+                               Description = carPart.Description,
+                               Year = years.YearNameEn
                            };
 
             return carParts.ToList();
         }
-        public List<CarPartDetails> GetAllCarPartsBycarPartType(string search,int partTypeId)
+        public List<CarPartDetails> GetAllCarPartsForWebSite()
         {
             var carParts = from carPart in ctxWrite.CarParts.Where(x => x.IsDeleted == false).OrderByDescending(x => x.CreatedDate)
-                           join carPartType in ctxWrite.CarPartTypes.Where(x=>x.ID==partTypeId)
+                           join carPartType in ctxWrite.CarPartTypes
+                           on carPart.TypeId equals carPartType.ID
+                           join carMaker in ctxWrite.CarsMarkers
+                           on carPart.MakerId equals carMaker.MarkerID
+                           join carModel in ctxWrite.CarsModels
+                           on carPart.ModelId equals carModel.ModelID
+                           join years in ctxWrite.Years
+                           on carPart.YearId equals years.YearID
+                           where (carPart.IsActive == true)
+                           select new CarPartDetails
+                           {
+                               CarPartId = carPart.Id,
+                               CarPartType = carPartType.Name_En,
+                               MarkerNameEn = carMaker.MarkerNameEn,
+                               MarkerNameAr = carMaker.MarkerNameAr,
+                               ModelNameEn = carModel.TypeNameEn,
+                               ModelNameAr = carModel.TypeNameAr,
+                               IsActive = carPart.IsActive,
+                               Price = carPart.Price.ToString(),
+                               Description = carPart.Description,
+                               Year = years.YearNameEn
+                           };
+
+            return carParts.ToList();
+        }
+        public List<CarPartDetails> GetAllCarPartsBycarPartType(string search, int partTypeId)
+        {
+            var carParts = from carPart in ctxWrite.CarParts.Where(x => x.IsDeleted == false).OrderByDescending(x => x.CreatedDate)
+                           join carPartType in ctxWrite.CarPartTypes.Where(x => x.ID == partTypeId)
                            on carPart.TypeId equals carPartType.ID
                            join carMaker in ctxWrite.CarsMarkers
                            on carPart.MakerId equals carMaker.MarkerID
@@ -92,7 +121,8 @@ namespace SystemManager.Business
                                MarkerNameAr = carMaker.MarkerNameAr,
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
-                               IsActive=carPart.IsActive,
+                               IsActive = carPart.IsActive,
+                               Price = carPart.Price.ToString(),
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -101,7 +131,7 @@ namespace SystemManager.Business
         }
         public List<CarPartDetails> GetAllCarParts(string search)
         {
-            var carParts = from carPart in ctxWrite.CarParts.Where(x=>x.IsDeleted==false).OrderByDescending(x => x.CreatedDate)
+            var carParts = from carPart in ctxWrite.CarParts.Where(x => x.IsDeleted == false).OrderByDescending(x => x.CreatedDate)
                            join carPartType in ctxWrite.CarPartTypes
                            on carPart.TypeId equals carPartType.ID
                            join carMaker in ctxWrite.CarsMarkers
@@ -110,9 +140,9 @@ namespace SystemManager.Business
                            on carPart.ModelId equals carModel.ModelID
                            join years in ctxWrite.Years
                            on carPart.YearId equals years.YearID
-                           where(carMaker.MarkerNameEn.Contains(search)||carMaker.MarkerNameAr.Contains(search) ||
+                           where (carMaker.MarkerNameEn.Contains(search) || carMaker.MarkerNameAr.Contains(search) ||
                                   carModel.TypeNameEn.Contains(search) || carModel.TypeNameAr.Contains(search) ||
-                                  carPartType.Name_En.Contains(search) || years.YearNameEn.Contains(search))
+                                  carPartType.Name_En.Contains(search) || years.YearNameEn.Contains(search) || carPart.Price.ToString() == search)
                            select new CarPartDetails
                            {
                                CarPartId = carPart.Id,
@@ -122,6 +152,35 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
+                               Price = carPart.Price.ToString(),
+                               Description = carPart.Description,
+                               Year = years.YearNameEn
+                           };
+
+            return carParts.ToList();
+        }
+        public List<CarPartDetails> GetCarPartDetailsById(int id)
+        {
+            var carParts = from carPart in ctxWrite.CarParts.Where(x => x.IsDeleted == false).OrderByDescending(x => x.CreatedDate)
+                           join carPartType in ctxWrite.CarPartTypes
+                           on carPart.TypeId equals carPartType.ID
+                           join carMaker in ctxWrite.CarsMarkers
+                           on carPart.MakerId equals carMaker.MarkerID
+                           join carModel in ctxWrite.CarsModels
+                           on carPart.ModelId equals carModel.ModelID
+                           join years in ctxWrite.Years
+                           on carPart.YearId equals years.YearID
+                           where (carPart.Id==id)
+                           select new CarPartDetails
+                           {
+                               CarPartId = carPart.Id,
+                               CarPartType = carPartType.Name_En,
+                               MarkerNameEn = carMaker.MarkerNameEn,
+                               MarkerNameAr = carMaker.MarkerNameAr,
+                               ModelNameEn = carModel.TypeNameEn,
+                               ModelNameAr = carModel.TypeNameAr,
+                               IsActive = carPart.IsActive,
+                               Price = carPart.Price.ToString(),
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };

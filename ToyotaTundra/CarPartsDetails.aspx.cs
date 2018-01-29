@@ -7,35 +7,16 @@ using System.Web.UI.WebControls;
 using SystemManager.Business;
 using SystemManager.Models;
 
-public partial class CarPartTypeSite : System.Web.UI.Page
+public partial class CarPartsDetails : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
         {
-             ShowCarPartsContent();
-        }
-
-    }
-    protected void btnSearch_Click(object sender, EventArgs e)
-    {
-        ShowCarPartsContentWithSearch();
-    }
-    private void ShowCarPartsContentWithSearch()
-    {
-        List<CarPartDetails> data = new List<CarPartDetails>();
-        // get data.
-            data = new CarPartsManager().GetAllCarParts(txtName.Text.Trim()).Take(10).ToList();
-        parts = data;
-        if (data != null)
-        {
-            foreach (var item in data)
+            if (!string.IsNullOrEmpty(Request.QueryString["ID"]))
             {
-                var model = new CarPartsImagesManager().CarPartHasMainImage(item.CarPartId);
-                if (model.Count() == 0)
-                    item.ImageUrl = "20_bQT1WmUM.jpg";
-                else
-                    item.ImageUrl = model.Where(x => x.IsMain == true).FirstOrDefault().Url;
+                var id = Request.QueryString["ID"];
+                ShowCarPartsContent(Convert.ToInt32(id));
             }
         }
     }
@@ -51,12 +32,11 @@ public partial class CarPartTypeSite : System.Web.UI.Page
         }
         set { ViewState["StatisticsArray"] = value; }
     }
-
-    private void ShowCarPartsContent()
+    private void ShowCarPartsContent(int id)
     {
 
         // get data.
-        List<CarPartDetails> data = new CarPartsManager().GetAllCarPartsForWebSite().Take(10).ToList();
+        List<CarPartDetails> data = new CarPartsManager().GetCarPartDetailsById(id).ToList();
         parts = data;
         if (data != null)
         {
@@ -70,4 +50,4 @@ public partial class CarPartTypeSite : System.Web.UI.Page
             }
         }
     }
-    }
+}
