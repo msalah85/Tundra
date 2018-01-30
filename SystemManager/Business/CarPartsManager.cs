@@ -112,7 +112,8 @@ namespace SystemManager.Business
                            on carPart.YearId equals years.YearID
                            where (carMaker.MarkerNameEn.Contains(search) || carMaker.MarkerNameAr.Contains(search) ||
                                   carModel.TypeNameEn.Contains(search) || carModel.TypeNameAr.Contains(search) ||
-                                  carPartType.Name_En.Contains(search) || years.YearNameEn.Contains(search))
+                                  carPartType.Name_En.Contains(search) || years.YearNameEn.Contains(search) ||
+                                  carPart.Price.ToString().Contains(search))
                            select new CarPartDetails
                            {
                                CarPartId = carPart.Id,
@@ -142,7 +143,8 @@ namespace SystemManager.Business
                            on carPart.YearId equals years.YearID
                            where (carMaker.MarkerNameEn.Contains(search) || carMaker.MarkerNameAr.Contains(search) ||
                                   carModel.TypeNameEn.Contains(search) || carModel.TypeNameAr.Contains(search) ||
-                                  carPartType.Name_En.Contains(search) || years.YearNameEn.Contains(search) || carPart.Price.ToString() == search)
+                                  carPartType.Name_En.Contains(search) || years.YearNameEn.Contains(search) ||
+                                  carPart.Price.ToString().Contains(search))
                            select new CarPartDetails
                            {
                                CarPartId = carPart.Id,
