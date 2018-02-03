@@ -110,8 +110,9 @@
             <asp:TemplateField>
                 <ItemTemplate>  
                     <br />                  
-                        <img id="Img1" border="0" width="75" alt="Click to view car details" runat="server"
-                         src='<%# "~/Public/image/carParts/_thumb/" + (Eval("ImageUrl") != null  ? Eval("ImageUrl") : "no_photo.jpg") %>' />                  
+                     <a href='<%# "CarPartsImages.aspx?masterId=" + Eval("CarPartId") %>'><img id="Img1" border="0" width="75" alt="Click to view car details" runat="server"
+                         src='<%# "~/Public/image/carParts/_thumb/" + (Eval("ImageUrl") != null  ? Eval("ImageUrl") : "no_photo.jpg") %>' />   
+                    </a>               
                 </ItemTemplate>
                 <HeaderTemplate>                    
                       
@@ -126,7 +127,15 @@
                 <HeaderTemplate>                    
                         Active 
                 </HeaderTemplate>
-            </asp:TemplateField> 
+            </asp:TemplateField>
+               <asp:TemplateField>
+                <ItemTemplate>                    
+                        <%# Eval("CarPartType")%>                  
+                </ItemTemplate>
+                <HeaderTemplate>                    
+                        Car Part Type
+                </HeaderTemplate>
+            </asp:TemplateField>  
             <asp:TemplateField>
                 <ItemTemplate>   
                                      

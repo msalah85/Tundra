@@ -40,11 +40,12 @@ namespace SystemManager.Business
             }
             catch { return false; }
         }
-        public bool RessetMainImage(long imgID)
+        public bool RessetMainImage(long imgID,int partId)
         {
             try
             {
-                var lastMain = ctxWrite.CarPartsImages.Where(x => x.IsMain == true).FirstOrDefault();
+                var lastMain = ctxWrite.CarPartsImages.Where(x => x.IsMain == true&&x.PartId==partId).FirstOrDefault();
+                if(lastMain!=null)
                 lastMain.IsMain = false;
                 var image = ctxWrite.CarPartsImages.Where(x => x.Id == imgID).FirstOrDefault();
                 image.IsMain = true;

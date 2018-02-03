@@ -76,7 +76,7 @@ public partial class adm_tunr_CarPartsImages : System.Web.UI.Page
             if (imgID != 0 && masterID != 0)
             {
                 // perform reset image action in db.            
-                if (new CarPartsImagesManager().RessetMainImage(imgID))
+                if (new CarPartsImagesManager().RessetMainImage(imgID,masterID))
                 {
                     // Refresh images list.
                     FillImagesList(masterID);

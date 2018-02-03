@@ -65,7 +65,13 @@ public partial class adm_tunr_CarPartsView : System.Web.UI.Page
                 if (model.Count() == 0)
                     item.ImageUrl = "20_bQT1WmUM.jpg";
                 else
-                    item.ImageUrl = model.Where(x => x.IsMain == true).FirstOrDefault().Url;
+                {
+                    var model0 = model.Where(x => x.IsMain == true).ToList();
+                    if (model0.Count() == 0)
+                        item.ImageUrl = "20_bQT1WmUM.jpg";
+                    else
+                        item.ImageUrl = model0.FirstOrDefault().Url;
+                }
             }
             // show home news
             lvCarParts.DataSource = data;

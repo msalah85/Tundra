@@ -1,7 +1,10 @@
-﻿<%@ Page Title="شركة" Language="C#" MasterPageFile="~/SiteCarPart.master" AutoEventWireup="true" CodeFile="CarPartTypeSite.aspx.cs" Inherits="CarPartTypeSite" %>
+﻿<%@ Page Title="شركة" Language="C#"  AutoEventWireup="true" CodeFile="CarPartTypeSite.aspx.cs" Inherits="CarPartTypeSite" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
-    
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/apple-touch-icon.png">
+    <link href="//fonts.googleapis.com/earlyaccess/droidarabickufi.css" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/earlyaccess/droidarabicnaskh.css" rel="stylesheet" />
+    <link href="/Content/tundra.min.css" rel="stylesheet" />
+    <script src="Scripts/modernizr-2.6.2.min.js"></script>
     <form runat="server">
         <br /><br />
 <table width="70%" cellspacing="0" cellpadding="8" border="0" class="Grid">
@@ -26,7 +29,8 @@
 
                     <!-- CONTENT -->
                     <div class="col-md-12 content car-listing" id="content">
-                      
+                      <% if (parts.Count() > 0) %>
+                        <%{ %>
                         <%foreach (var item in parts)
                             {%>
                           <div class="thumbnail no-border no-padding thumbnail-car-card clearfix">
@@ -38,6 +42,7 @@
                                
                                 <h4 class="caption-title">   السعر : <% = item.Price %></h4>
                                 <h5 class="caption-title-sub"> السنه   : <% = item.Year %> </h5>
+                                <h5 class="caption-title-sub"> نوع الغيار   : <% = item.CarPartType %> </h5>
                                 <div class="caption-text"><% = item.Description %></div>
                                 <table class="table">
                                     <tbody><tr>
@@ -50,11 +55,17 @@
                                 </tbody></table>
                             </div>
                         </div>  
-                            <%} %>
+                            <%}
+        } %>
+                        <%else %>
+                         <%{ %>  
+                        <div class="thumbnail no-border no-padding thumbnail-car-card clearfix">
+                        <div class="caption"> <h4 class="caption-title"> لا توجد بيانات متطابقة </h4>
+                            </div></div><%} %>
+                           
                         <!-- /Pagination -->
 
                     </div>
 
           
         </section>
-    </asp:Content>

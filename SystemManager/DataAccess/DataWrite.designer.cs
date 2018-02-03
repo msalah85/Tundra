@@ -159,7 +159,7 @@ namespace SystemManager.DataAccess
     #endregion
 		
 		public DataWriteDataContext() : 
-				base(global::SystemManager.Properties.Settings.Default.TundraUaeConnectionString, mappingSource)
+				base(global::SystemManager.Properties.Settings.Default.TundraMkConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

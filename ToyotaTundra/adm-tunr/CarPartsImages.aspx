@@ -21,10 +21,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table cellspacing="0" cellpadding="0" border="0" width="98%">
         <tbody>
-            <tr>
+            <tr>    
                 <td class="innerContentHead">Car Partss >> Car Part Pictures
                     <div class="div-right">
-                        <a href="CarsView.aspx" title="Back to cars">
+                        <a href="CarPartsView.aspx" title="Back to car parts">
                             <img src="../App_Themes/admin/images/go-back.png" height="24" alt="Back to cars" /></a>    <a title="Add picture" href="#addPicture">
                                 <img src="../App_Themes/admin/images/add-new.png" alt="Add new" /></a>
                     </div>
