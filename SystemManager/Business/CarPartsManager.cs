@@ -346,7 +346,7 @@ namespace SystemManager.Business
                                 return SearcCarPartsWithPrice(model);
                             }
                             else
-                                return SearcCarPartsWithCarPartType(model);
+                                return SearcCarPartswithsearch(model);
                         }
                     }
                 }
@@ -1392,6 +1392,38 @@ namespace SystemManager.Business
                                   carPartType.Name_En.Contains(model.Search) || years.YearNameEn.Contains(model.Search) ||
                                   carPart.Price.ToString().Contains(model.Search)) &&
                                   (carPart.Price >= Convert.ToInt32(model.StartPrice) && carPart.Price <= Convert.ToInt32(model.EndPrice) ))
+                           select new CarPartDetails
+                           {
+                               CarPartId = carPart.Id,
+                               CarPartType = carPartType.Name_En,
+                               MarkerNameEn = carMaker.MarkerNameEn,
+                               MarkerNameAr = carMaker.MarkerNameAr,
+                               ModelNameEn = carModel.TypeNameEn,
+                               ModelNameAr = carModel.TypeNameAr,
+                               IsActive = carPart.IsActive,
+                               Price = carPart.Price.ToString(),
+                               Description = carPart.Description,
+                               Year = years.YearNameEn
+                           };
+
+            return carParts.ToList();
+        }
+        public List<CarPartDetails> SearcCarPartswithsearch(CarPartsSearch model)
+        {
+            var carParts = from carPart in ctxWrite.CarParts.Where(x => x.IsDeleted == false).OrderByDescending(x => x.CreatedDate)
+                           join carPartType in ctxWrite.CarPartTypes
+                           on carPart.TypeId equals carPartType.ID
+                           join carMaker in ctxWrite.CarsMarkers
+                           on carPart.MakerId equals carMaker.MarkerID
+                           join carModel in ctxWrite.CarsModels
+                           on carPart.ModelId equals carModel.ModelID
+                           join years in ctxWrite.Years
+                           on carPart.YearId equals years.YearID
+                           where (
+                                  (carMaker.MarkerNameEn.Contains(model.Search) || carMaker.MarkerNameAr.Contains(model.Search) ||
+                                  carModel.TypeNameEn.Contains(model.Search) || carModel.TypeNameAr.Contains(model.Search) ||
+                                  carPartType.Name_En.Contains(model.Search) || years.YearNameEn.Contains(model.Search) ||
+                                  carPart.Price.ToString().Contains(model.Search)))
                            select new CarPartDetails
                            {
                                CarPartId = carPart.Id,
