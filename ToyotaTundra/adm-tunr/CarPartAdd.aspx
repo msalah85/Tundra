@@ -20,23 +20,7 @@
     </h6>
     <table style="border-collapse: collapse;" cellspacing="2" cellpadding="2" width="98%"
         class="Grid">
-        <!--
-            Web should arrange controls on the page by important fields for the customer So like
-
-            - Car Maker
-            -Car Model
-            - Year
-            - PArt Type
-            - Part Description
-            - PRice
-            - Periority
-            - Active
-
-            Keep Delete field hidden add it in code only
-
-            If the part has Deleted = True IT will be hidden of the user in Admin or site.
-            -->
-
+   
 
         <tbody>
             <tr>

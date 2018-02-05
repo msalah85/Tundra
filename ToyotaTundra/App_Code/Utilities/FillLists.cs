@@ -235,6 +235,28 @@ static public class FillLists
 
         list.Items.Insert(0, "");
     }
+    static public void FillFromYearsList(DropDownList list)
+    {
+        list.Items.Clear();
+
+        list.DataSource = new YearsManager().GetYearsNames();
+        list.DataValueField = "YearID";
+        list.DataTextField = "YearNameEn";
+        list.DataBind();
+
+        list.Items.Insert(0, "السنة من");
+    }
+    static public void FillToYearsList(DropDownList list)
+    {
+        list.Items.Clear();
+
+        list.DataSource = new YearsManager().GetYearsNames();
+        list.DataValueField = "YearID";
+        list.DataTextField = "YearNameEn";
+        list.DataBind();
+
+        list.Items.Insert(0, "السنة إلي");
+    }
 
     static public void FillWorkingStatusList(DropDownList list)
     {
