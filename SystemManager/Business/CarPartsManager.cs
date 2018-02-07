@@ -64,7 +64,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ?0: carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -92,7 +92,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ?0: carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -125,7 +125,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -156,7 +156,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -173,7 +173,7 @@ namespace SystemManager.Business
                     {
                         if (model.FromYearId > 0 && model.ToYearId > 0)
                         {
-                            if (!string.IsNullOrEmpty(model.StartPrice) && !string.IsNullOrEmpty(model.EndPrice))
+                            if (model.StartPrice!=0 && model.EndPrice!=0)
                             {
                                 return SearcCarPartsWithCarPartTypeAndMakerAndModelAndYearAndPrice(model);
                             }
@@ -182,7 +182,7 @@ namespace SystemManager.Business
                         }
                         else
                         {
-                            if (!string.IsNullOrEmpty(model.StartPrice) && !string.IsNullOrEmpty(model.EndPrice))
+                            if (model.StartPrice != 0 && model.EndPrice != 0)
                             {
                                 return SearcCarPartsWithCarPartTypeAndMakerAndModelAndPrice(model);
                             }
@@ -194,7 +194,7 @@ namespace SystemManager.Business
                     {
                         if (model.FromYearId > 0 && model.ToYearId > 0)
                         {
-                            if (!string.IsNullOrEmpty(model.StartPrice) && !string.IsNullOrEmpty(model.EndPrice))
+                            if (model.StartPrice != 0 && model.EndPrice != 0)
                             {
                                 return SearcCarPartsWithCarPartTypeAndMakerAndYearAndPrice(model);
                             }
@@ -203,7 +203,7 @@ namespace SystemManager.Business
                         }
                         else
                         {
-                            if (!string.IsNullOrEmpty(model.StartPrice) && !string.IsNullOrEmpty(model.EndPrice))
+                            if (model.StartPrice != 0 && model.EndPrice != 0)
                             {
                                 return SearcCarPartsWithCarPartTypeAndMakerAndPrice(model);
                             }
@@ -218,7 +218,7 @@ namespace SystemManager.Business
                     {
                         if (model.FromYearId > 0 && model.ToYearId > 0)
                         {
-                            if (!string.IsNullOrEmpty(model.StartPrice) && !string.IsNullOrEmpty(model.EndPrice))
+                            if (model.StartPrice != 0 && model.EndPrice != 0)
                             {
                                 return SearcCarPartsWithCarPartTypeAndModelAndYearAndPrice(model);
                             }
@@ -227,7 +227,7 @@ namespace SystemManager.Business
                         }
                         else
                         {
-                            if (!string.IsNullOrEmpty(model.StartPrice) && !string.IsNullOrEmpty(model.EndPrice))
+                            if (model.StartPrice!=0 && model.EndPrice!=0)
                             {
                                 return SearcCarPartsWithCarPartTypeAndModelAndPrice(model);
                             }
@@ -239,7 +239,7 @@ namespace SystemManager.Business
                     {
                         if (model.FromYearId > 0 && model.ToYearId > 0)
                         {
-                            if (!string.IsNullOrEmpty(model.StartPrice) && !string.IsNullOrEmpty(model.EndPrice))
+                            if (model.StartPrice!=0 && model.EndPrice!=0)
                             {
                                 return SearcCarPartsWithCarPartTypeAndYearAndPrice(model);
                             }
@@ -248,7 +248,7 @@ namespace SystemManager.Business
                         }
                         else
                         {
-                            if (!string.IsNullOrEmpty(model.StartPrice) && !string.IsNullOrEmpty(model.EndPrice))
+                            if (model.StartPrice!=0 && model.EndPrice!=0)
                             {
                                 return SearcCarPartsWithCarPartTypeAndPrice(model);
                             }
@@ -266,7 +266,7 @@ namespace SystemManager.Business
                     {
                         if (model.FromYearId > 0 && model.ToYearId > 0)
                         {
-                            if (!string.IsNullOrEmpty(model.StartPrice) && !string.IsNullOrEmpty(model.EndPrice))
+                            if (model.StartPrice!=0 && model.EndPrice!=0)
                             {
                                 return SearcCarPartsWithMakerAndModelAndYearAndPrice(model);
                             }
@@ -275,7 +275,7 @@ namespace SystemManager.Business
                         }
                         else
                         {
-                            if (!string.IsNullOrEmpty(model.StartPrice) && !string.IsNullOrEmpty(model.EndPrice))
+                            if (model.StartPrice!=0 && model.EndPrice!=0)
                             {
                                 return SearcCarPartsWithMakerAndModelAndPrice(model);
                             }
@@ -287,7 +287,7 @@ namespace SystemManager.Business
                     {
                         if (model.FromYearId > 0 && model.ToYearId > 0)
                         {
-                            if (!string.IsNullOrEmpty(model.StartPrice) && !string.IsNullOrEmpty(model.EndPrice))
+                            if (model.StartPrice!=0 && model.EndPrice!=0)
                             {
                                 return SearcCarPartsWithMakerAndYearAndPrice(model);
                             }
@@ -296,7 +296,7 @@ namespace SystemManager.Business
                         }
                         else
                         {
-                            if (!string.IsNullOrEmpty(model.StartPrice) && !string.IsNullOrEmpty(model.EndPrice))
+                            if (model.StartPrice!=0 && model.EndPrice!=0)
                             {
                                 return SearcCarPartsWithMakerAndPrice(model);
                             }
@@ -311,7 +311,7 @@ namespace SystemManager.Business
                     {
                         if (model.FromYearId > 0 && model.ToYearId > 0)
                         {
-                            if (!string.IsNullOrEmpty(model.StartPrice) && !string.IsNullOrEmpty(model.EndPrice))
+                            if (model.StartPrice!=0 && model.EndPrice!=0)
                             {
                                 return SearcCarPartsWithModelAndYearAndPrice(model);
                             }
@@ -320,7 +320,7 @@ namespace SystemManager.Business
                         }
                         else
                         {
-                            if (!string.IsNullOrEmpty(model.StartPrice) && !string.IsNullOrEmpty(model.EndPrice))
+                            if (model.StartPrice!=0 && model.EndPrice!=0)
                             {
                                 return SearcCarPartsWithModelAndPrice(model);
                             }
@@ -332,7 +332,7 @@ namespace SystemManager.Business
                     {
                         if (model.FromYearId > 0 && model.ToYearId > 0)
                         {
-                            if (!string.IsNullOrEmpty(model.StartPrice) && !string.IsNullOrEmpty(model.EndPrice))
+                            if (model.StartPrice!=0 && model.EndPrice!=0)
                             {
                                 return SearcCarPartsWithYearAndPrice(model);
                             }
@@ -341,7 +341,7 @@ namespace SystemManager.Business
                         }
                         else
                         {
-                            if (!string.IsNullOrEmpty(model.StartPrice) && !string.IsNullOrEmpty(model.EndPrice))
+                            if (model.StartPrice!=0 && model.EndPrice!=0)
                             {
                                 return SearcCarPartsWithPrice(model);
                             }
@@ -379,7 +379,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -412,7 +412,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -445,7 +445,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -477,7 +477,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -511,7 +511,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -544,7 +544,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -577,7 +577,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -609,7 +609,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -641,7 +641,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -675,7 +675,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -708,7 +708,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -741,7 +741,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -773,7 +773,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -807,7 +807,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -840,7 +840,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -873,7 +873,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -907,7 +907,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -940,7 +940,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -973,7 +973,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -1005,7 +1005,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -1039,7 +1039,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -1072,7 +1072,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -1105,7 +1105,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -1137,7 +1137,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -1169,7 +1169,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -1203,7 +1203,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -1236,7 +1236,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -1269,7 +1269,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -1301,7 +1301,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -1335,7 +1335,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -1368,7 +1368,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -1401,7 +1401,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -1433,7 +1433,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };
@@ -1466,7 +1466,7 @@ namespace SystemManager.Business
                                ModelNameEn = carModel.TypeNameEn,
                                ModelNameAr = carModel.TypeNameAr,
                                IsActive = carPart.IsActive,
-                               Price = carPart.Price.ToString(),
+                               Price = (carPart.Price) == null ? 0 : carPart.Price.Value,
                                Description = carPart.Description,
                                Year = years.YearNameEn
                            };

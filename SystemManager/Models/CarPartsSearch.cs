@@ -12,8 +12,8 @@ namespace SystemManager.Models
         public int MakerId { get; set; }
         public int FromYearId { get; set; }
         public int ToYearId { get; set; }
-        public string StartPrice { get; set; }
-        public string EndPrice { get; set; }
+        public decimal StartPrice { get; set; }
+        public decimal EndPrice { get; set; }
         public string Search { get; set; }
     }
 }

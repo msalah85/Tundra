@@ -16,7 +16,7 @@ namespace SystemManager.Models
         public string ModelNameEn { get; set; }
         public string ModelNameAr { get; set; }
         public string Year { get; set; }
-        public string Price { get; set; }
+        public decimal Price { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
         public bool IsActive { get; set; }

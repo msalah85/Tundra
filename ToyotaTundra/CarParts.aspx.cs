@@ -9,6 +9,8 @@ using SystemManager.Models;
 
 public partial class CarParts : System.Web.UI.Page
 {
+    public decimal maxPrice { get; set; }
+    public decimal minPrice { get; set; }
     protected void Page_Load(object sender, EventArgs e)
     {   
         if (!Page.IsPostBack)
@@ -28,11 +30,14 @@ public partial class CarParts : System.Web.UI.Page
         if (ddlMarkers.SelectedIndex > 0) { model.MakerId = Convert.ToInt32(ddlMarkers.SelectedValue); }
         if (ddlModels.SelectedIndex > 0) { model.ModelId = Convert.ToInt32(ddlModels.SelectedValue); }
         if (ddlcarPartType.SelectedIndex > 0) { model.CarPartTypeId = Convert.ToInt32(ddlcarPartType.SelectedValue); }
-        if (fromPrice.Text != "") { model.StartPrice = fromPrice.Text; }
-        if (endPrice.Text != "") { model.EndPrice = endPrice.Text; }
         if (ddlYears.SelectedIndex > 0) { model.FromYearId = Convert.ToInt32(ddlYears.SelectedItem.Text); }
-        if (ddlYears.SelectedIndex > 0) { model.ToYearId = Convert.ToInt32(ddlToYears.SelectedItem.Text); }
+        if (ddlToYears.SelectedIndex > 0) { model.ToYearId = Convert.ToInt32(ddlToYears.SelectedItem.Text); }
         model.Search = txtName.Text.Trim();
+        string _price = amout_rating.Value.ToString();
+        model.StartPrice = Convert.ToDecimal(_price.Split(',')[0]);
+        model.EndPrice = Convert.ToDecimal(_price.Split(',')[1]);
+        Session["cur_minPrice"]= Convert.ToDecimal(model.StartPrice);
+        Session["cur_maxPrice"]= Convert.ToDecimal(model.EndPrice);
         List<CarPartDetails> data = new List<CarPartDetails>();
         // get data.
             data = new CarPartsManager().GetAllCarParts(model).Take(10).ToList();
@@ -67,6 +72,11 @@ public partial class CarParts : System.Web.UI.Page
 
         // get data.
         List<CarPartDetails> data = new CarPartsManager().GetAllCarPartsForWebSite().Take(10).ToList();
+         maxPrice = data.Max(x => x.Price);
+         minPrice = data.Min(x => x.Price);
+        Session["maxPrice"] = Convert.ToDecimal(maxPrice);
+        Session["cur_maxPrice"] = Convert.ToDecimal(maxPrice);
+        Session["cur_minPrice"] = Convert.ToDecimal(1);
         parts = data;
         if (data != null)
         {
