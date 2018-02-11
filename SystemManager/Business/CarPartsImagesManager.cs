@@ -22,7 +22,11 @@ namespace SystemManager.Business
         {
           return ctxWrite.CarPartsImages.Where(x => x.PartId == carPartId).ToList();
         }
-
+        public List<string> GetAllImagesUrl(int carPartId)
+        {
+            return (from a in ctxWrite.CarPartsImages.Where(x=>x.PartId==carPartId)
+                    select a.Url.ToString()).ToList<string>();
+        }
         public bool DeleteAnImage(long imgID)
         {
             try

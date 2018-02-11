@@ -20,5 +20,6 @@ namespace SystemManager.Models
         public string Description { get; set; }
         public string ImageUrl { get; set; }
         public bool IsActive { get; set; }
+        public List<string> ImagesUrl { get; set; }
     }
 }

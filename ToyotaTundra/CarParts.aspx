@@ -1,6 +1,6 @@
-﻿<%@ Page Title="شركة" Language="C#" AutoEventWireup="true" CodeFile="CarParts.aspx.cs" Inherits="CarParts" %>
+﻿<%@ Page Title="شركة" Language="C#"  AutoEventWireup="true" CodeFile="CarParts.aspx.cs" Inherits="CarParts" %>
 
-<head>
+<head >
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Car Parts</title>
@@ -12,6 +12,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="http://rentit.wpmix.net/wp-includes/js/wp-emoji-release.min.js?ver=4.9.2" type="text/javascript" defer=""></script>
     <style type="text/css">
+
         img.wp-smiley,
         img.emoji {
             display: inline !important;
@@ -23,6 +24,10 @@
             vertical-align: -0.1em !important;
             background: none !important;
             padding: 0 !important;
+        }
+
+        label {
+            float:right;
         }
         .ser{
                 position: absolute;
@@ -63,6 +68,7 @@
 <![endif]-->
 
 </head>
+    
 <body  id="home" class="archive paged post-type-archive post-type-archive-product paged-2 post-type-paged-2 wide woocommerce woocommerce-page product-vw-polo-1-6-tdi-comfortline-3 wpb-js-composer js-comp-ver-5.4.4 vc_responsive">
     <form runat="server">
     <div id="preloader" style="display: none;">
@@ -74,23 +80,67 @@
                 <div class="rect4"></div>
                 <div class="rect5"></div>
             </div>
-            <div id="preloader-title">Loading </div>
+            <div id="preloader-title">تويوتا تانـــــدرا إم. كـ </div>
         </div>
     </div>
 
 
     <div class="wrapper">
-
-      
-
+        <header class="header fixed">
+            <div class="header-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <nav class="navigation closed clearfix" style="    position: relative;float: left;"> 
+                               
+                                        <!-- navigation menu -->
+                                        <a href="#" class="menu-toggle-close btn"><i class="fa fa-times"></i></a>
+                                        <ul class="nav sf-menu">
+                                            <li>
+                                                <ul class="social-icons">                                                    
+                                                    <li><a href="https://www.instagram.com/tundra_mk/" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a></li>
+                                                    <li><a href="https://www.facebook.com/pg/tundramk/posts/" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#contact-us">تواصل معنا</a></li>
+                                        </ul>
+                                   
+                                <div class="swiper-scrollbar"></div>
+                            </nav>
+                        </div>
+                        <a href="#" class="menu-toggle btn ripple-effect btn-theme-transparent"><i class="fa fa-bars"></i></a>
+                        <div class="col-md-2">
+                            <div class="logo" style="left: -34px; padding: 14px; width: 203px;height: 90px;">    
+                                <a href="/">
+                                    <img src="/images/logo-rentit.png" alt="تاندرا إم كـ" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <br /><br />
+      <h2 class="section-title wow fadeInUp" data-wow-offset="70" data-wow-delay="500ms">
+                <small>اختر وقارن بين قطع الغيار </small>
+                <span>من قطع غيار  تاندرا المتميزة</span>
+            </h2>
+        
         <div class="content-area">
-
-
+          
             <section class="page-section with-sidebar sub-page">
                 <div class="container">
                     <div class="row">
 
-                 
+                 <asp:ScriptManager ID="script1" runat="server"></asp:ScriptManager>
+                        <div style="text-align:center">
+                            
+                      <asp:UpdateProgress  ID="UpdateProgress1"  runat="server" AssociatedUpdatePanelID="UpdatePanel2">
+                                            <ProgressTemplate>
+                                              <img src="images/search.gif" />
+                                            </ProgressTemplate>
+                                        </asp:UpdateProgress>
+                            </div>
+                        <asp:UpdatePanel ID="panel" runat="server"><ContentTemplate>
 
                         <div class="col-md-9 content  " id="content">
                             <div class="row">
@@ -99,15 +149,21 @@
                         <%foreach (var item in parts)
                             {%>
                                 <div class="col-md-6">
-                                    <div class="thumbnail no-border no-padding thumbnail-car-card">
-                                        <div class="media">
-                                                <img src='../Public/image/carParts/_thumb/<%=item.ImageUrl %>' />
+                                    <div class="thumbnail no-border no-padding thumbnail-car-card" >
+                                        <div class="media" >
+                                                <img style="width: 420px;height: 279px;" src='../Public/image/carParts/_thumb/<%=item.ImageUrl %>' />
                                         </div>
                                         <div class="caption text-center">
                                             <h4 class="caption-title"><% = item.CarPartType %>
                                             </h4>
                                             <div class="caption-text">
-                                               <% = item.Description %>
+                                                <% if (item.Description.Length > 20)
+                                                    {%>
+                                                <% = item.Description.Substring(0, 20) + "....  " %>
+                                                <%}
+    else {%>
+                                                <% =item.Description%>
+                                                <%} %>
                                             </div>
                                             <div class="buttons">
                                                 <a href="/CarPartsDetails.aspx?ID=<%= item.CarPartId%>" data-action="10126" class="btn btn-theme btn-theme-dark" >التفاصيل</a>
@@ -118,13 +174,13 @@
                                                         <td>
                                                             <i class=""></i><% = item.Year %> </td>
                                                         <td>
-                                                            <i class=""></i><% = item.Price %> </td>
+                                                            <i class=""></i><% =  Convert.ToInt32(item.Price) %> </td>
                                                         <td>
                                                             <i class=""></i><% = item.CarPartType %> </td>
                                                         <td>
-                                                            <i class=""></i><% = item.ModelNameAr %> </td>
+                                                            <i class=""></i><% = item.ModelNameEn %> </td>
                                                          <td>
-                                                            <i class=""></i><% = item.MarkerNameAr %> </td>
+                                                            <i class=""></i><% = item.MarkerNameEn %> </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -137,45 +193,56 @@
                         <%else %>
                          <%{ %>  
                         <div class="thumbnail no-border no-padding thumbnail-car-card clearfix">
-                        <div class="caption"> <h4 class="caption-title"> لا توجد بيانات متطابقة </h4>
+                        <div class="caption bg-danger text-center"> <h4 class="caption-title "> لا توجد بيانات متطابقة </h4>
                             </div></div><%} %>
                            
 
                             </div>
                        
                         </div>
-                               <aside class="col-md-3 sidebar" id="sidebar">
+                            </ContentTemplate></asp:UpdatePanel>
+                                        
+                       
+                               <aside class="col-md-3 sidebar" id="sidebar" >
+                                    <asp:UpdatePanel ID="UpdatePanel1" runat="server"><ContentTemplate>
                             <aside id="rentit_find_best_rental_car_class-2" class="widget shadow rentit_card-widget widget-find-car">
-                                <h1 class="widget-title">أبحث قطع غيار</h1>
+                                <h1 class="widget-title"  dir="rtl"  >أبحث قطع غيار</h1>
                                 <div class="widget-content">
                                     <div class="">
 
                                         <div class="form-search light">
                                             <div class="form-group has-icon has-label">
-                                                    <asp:TextBox ID="txtName" runat="server"  class="form-control" placeholder="Search ...." ></asp:TextBox><i class="fa fa-search ser"></i>
+                                                    <asp:TextBox ID="txtName" runat="server"  class="form-control" placeholder="                           ....... بحث "  style="float:right"></asp:TextBox><i class="fa fa-search ser"></i>
 
 
                                                 </div>
                                                 <div class="form-group selectpicker-wrapper">
-                                                    <label>Car Maker</label>
+                                                    <label dir="rtl">نوع السياره </label>
                                                     <asp:DropDownList ID="ddlMarkers" runat="server" class="col-md-12 " style="height:40px" OnSelectedIndexChanged="ddlMarkers_SelectedIndexChanged" AutoPostBack="True">
                                                     </asp:DropDownList>
                                                 </div>
                                                 <div class="form-group selectpicker-wrapper">
-                                                    <label>Car Model</label>
+                                                    <label>الموديل </label>
                                                     <asp:DropDownList ID="ddlModels" runat="server" class="col-md-12 " style="height:40px" >
                                                      </asp:DropDownList>
                                                 </div>
                                                 <div class="form-group selectpicker-wrapper">
-                                                    <label>Select car part type</label>
+                                                    <label>نوع قطعة الغيار </label>
+                                                     <br />
                                                     <asp:DropDownList ID="ddlcarPartType" runat="server" class="col-md-12 " style="height:40px">
                                                     </asp:DropDownList>
+                                                    <br /> <br /> <br /> <br /> <br />
                                                 </div>
-                                             <br /><br />
+                                             
+                                            <br />
+                                         
                                             <div class="form-group selectpicker-wrapper">
-                                                    <asp:DropDownList ID="ddlYears" runat="server" class="col-md-6 " style="height:40px">
-                                                    </asp:DropDownList><asp:DropDownList ID="ddlToYears" runat="server" class="col-md-6 " style="height:40px">
+                                                
+                                                 <asp:DropDownList ID="ddlToYears" runat="server" class="col-md-6 " style="height:40px">
+                                                    </asp:DropDownList>   
+                                                 <asp:DropDownList ID="ddlYears" runat="server" class="col-md-6 " style="height:40px">
                                                     </asp:DropDownList>
+                                               
                                                     
                                                
                                                 </div>
@@ -187,8 +254,9 @@
                                     </div>
                                 </div>
                             </aside>
-  <aside id="rentit_price_filter_class-2" class="widget shadow rentit_card-widget widget-filter-price">
-                                <h1 class="widget-title">PRICE</h1>
+  </ContentTemplate></asp:UpdatePanel>
+                                   <aside id="rentit_price_filter_class-2" class="widget shadow rentit_card-widget widget-filter-price">
+                                <h1 class="widget-title"  dir="rtl">السعر </h1>
                                 <div class="widget-content">
                                     <div class="">
                                             <div id="slider-range" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
@@ -198,19 +266,111 @@
                                             </div>
                                             <input data-min="1" data-max="<%=Session["maxPrice"] %>" data-value_min="<%=Session["cur_minPrice"] %>" data-value_max="<%=Session["cur_maxPrice"] %>" value="<%=Session["cur_maxPrice"] %>" type="text" id="amount" readonly="">
                                             <asp:HiddenField runat="server"  id="amout_rating" value="<%= minPrice] %>"></asp:HiddenField >
-                                            <asp:Button Text="Filter" runat="server" OnClick="btnSearch_Click"  class="btn btn-theme btn-theme-dark">                                               
+                                        
+                                         <asp:UpdatePanel ID="UpdatePanel2" runat="server"><ContentTemplate>    
+
+                                        <asp:Button Text="بحث " runat="server" OnClick="btnSearch_Click"  class="btn btn-theme btn-theme-dark">                                               
                                             </asp:Button>
+                                              </ContentTemplate></asp:UpdatePanel>
                                     </div>
                                 </div>
                             </aside>
                        
                            
                         </aside>
+                            
                     </div>
                 </div>
             </section>
-
+              <section id="contact-us" class="page-section contact dark rtl">
+        <div class="container">
+            <h2 class="section-title wow fadeInDown" data-wow-offset="200" data-wow-delay="100ms">
+                <small>يسعدنا تواصلك معنا</small>
+                <span>بيانات الاتصال</span>
+            </h2>
+            <div class="row">
+                <div class="col-md-6 wow fadeInLeft" data-wow-offset="200" data-wow-delay="200ms">
+                    <form name="contact-form" method="post" action="#" class="contact-form" id="contact-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="outer required">
+                                    <div class="form-group af-inner has-icon">
+                                        <label class="sr-only" for="email">البريد الإلكترونى</label>
+                                        <input
+                                            type="text" name="email" id="email" placeholder="البريد الإلكترونى" value="" size="30"
+                                            data-toggle="tooltip" title="برجاء ادخال البريد الإلكترونى"
+                                            class="form-control placeholder" />
+                                        <span class="form-control-icon"><i class="fa fa-envelope"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="outer required">
+                                    <div class="form-group af-inner has-icon">
+                                        <label class="sr-only" for="name">الاسم</label>
+                                        <input
+                                            type="text" name="name" id="name" placeholder="الاسم" value="" size="30"
+                                            data-toggle="tooltip" title="برجاء ادخال الاسم"
+                                            class="form-control placeholder" />
+                                        <span class="form-control-icon"><i class="fa fa-user"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outer required">
+                            <div class="form-group af-inner has-icon">
+                                <label class="sr-only" for="subject">الهاتف</label>
+                                <input type="tel" name="subject" id="subject" placeholder="الهاتف" value="" size="30"
+                                    data-toggle="tooltip" title="برجاء ادخال الهاتف"
+                                    class="form-control placeholder" />
+                                <span class="form-control-icon"><i class="fa fa-phone"></i></span>
+                            </div>
+                        </div>
+                        <div class="form-group af-inner has-icon">
+                            <label class="sr-only" for="input-message">الرسالة</label>
+                            <textarea
+                                name="message" id="input-message" placeholder="الرسالة" rows="4" cols="50"
+                                data-toggle="tooltip" title="برجاء ادخال الرسالة"
+                                class="form-control placeholder"></textarea>
+                            <span class="form-control-icon"><i class="fa fa-bars"></i></span>
+                        </div>
+                        <div class="outer required">
+                            <div class="form-group af-inner">
+                                <input type="submit" name="submit" class="form-button form-button-submit btn btn-block btn-theme ripple-effect btn-theme-dark" id="submit_btn" value="ارســـل رسالــة" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6 wow fadeInRight" data-wow-offset="200" data-wow-delay="200ms">
+                    <p>شركة أرضل الموصل ، تاندرا إم كـ.</p>
+                    <ul class="media-list contact-list">
+                        <li class="media">
+                            <div class="media-left"><i class="fa fa-location-arrow"></i></div>
+                            <div class="media-body">العنوان: المنطقة الصناعية الرابعة ، خلف وكالة ايسوزو</div>
+                        </li>
+                        <li class="media">
+                            <div class="media-left"><i class="fa fa"></i></div>
+                            <div class="media-body">الشارقة ، الامارات العربية المتحدة</div>
+                        </li>
+                        <li class="media">
+                            <div class="media-left"><i class="fa fa-phone"></i></div>
+                            <div class="media-body">جوال: 00971564410453</div>
+                        </li>
+                        <li class="media">
+                            <div class="media-left"><i class="fa fa-envelope"></i></div>
+                            <div class="media-body">البريد الإلكتروني: mkautocar@yahoo.com</div>
+                        </li>
+                        <li class="media">
+                            <div class="media-left"><i class="fa fa-map-marker"></i></div>
+                            <a href="https://goo.gl/maps/aedjzVZ7Ss62" target="_blank" class="media-body">عرض الموقع على الخريطة</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
+    </section>
+        </div>
+          
         <div id="to-top" class="to-top"><i class="fa fa-angle-up"></i></div>
     </div>
     </form>
@@ -221,6 +381,7 @@
                 jQuery(window).trigger('resize');
             });
         });
+
     </script>
     <link rel="stylesheet" id="js_composer_front-css" href="http://rentit.wpmix.net/wp-content/plugins/js_composer/assets/css/js_composer.min.css?ver=5.4.4" type="text/css" media="all">
     <script type="text/javascript" src="http://rentit.wpmix.net/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.70"></script>
@@ -276,3 +437,4 @@
 
 
 </body>
+   

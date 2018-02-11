@@ -125,7 +125,7 @@
             <div class="row">
                 <div class="col-md-3 col-sm-6 wow fadeInDown" data-wow-offset="200" data-wow-delay="100ms">
                     <div class="thumbnail thumbnail-counto no-border no-padding">
-                        <a href="https://iraqusedcars.ae" data-toggle="tooltip" data-placement="top" data-original-title="شركة العراق لتجارة السيارات المستعملة وقطع غيارها" target="_blank" title="شركة العراق لتجارة السيارات المستعملة وقطع غيارها">
+                        <a href="https://iraqusedcars.ae" data-toggle="tooltip" data-placement="top" data-original-title="شركة العراق لتجارة السيارات المستعملة وقطع غيارها" target="_blank" title="">
                             <div class="caption">
                                 <div class="caption-icon"><i class="fa fa-flag"></i></div>
                                 <div class="caption-number">شركة العراق</div>
@@ -136,7 +136,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6 wow fadeInDown" data-wow-offset="200" data-wow-delay="200ms">
                     <div class="thumbnail thumbnail-counto no-border no-padding">
-                        <a href="https://www.facebook.com/KoreanMotorUAE/" target="_blank" data-toggle="tooltip" data-placement="top" data-original-title="شركة العراق لتجارة السيارات المستعملة وقطع غيارها" title="شركة المحرك الكوري لتجارة قطع الغيار الجديدة">
+                        <a href="https://www.facebook.com/KoreanMotorUAE/" target="_blank" data-toggle="tooltip" data-placement="top" data-original-title="شركة المحرك الكوري لتجارة قطع الغيار الجديدة" title="">
                             <div class="caption">
                                 <div class="caption-icon"><i class="fa fa-car"></i></div>
                                 <div class="caption-number">شركة المحرك الكوري</div>
@@ -147,7 +147,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6 wow fadeInDown" data-wow-offset="200" data-wow-delay="300ms">
                     <div class="thumbnail thumbnail-counto no-border no-padding">
-                        <a href="https://www.facebook.com/profile.php?id=100009187760867" target="_blank" data-toggle="tooltip" data-placement="top" data-original-title="شركة العراق لتجارة السيارات المستعملة وقطع غيارها" title="شركة أمريكا لتجارة السيارات المستعملة وقطع غيارها">
+                        <a href="https://www.facebook.com/profile.php?id=100009187760867" target="_blank" data-toggle="tooltip" data-placement="top" data-original-title="شركة أمريكا لتجارة السيارات المستعملة وقطع غيارها" title="">
                             <div class="caption">
                                 <div class="caption-icon"><i class="fa fa-flag"></i></div>
                                 <div class="caption-number">شركة أمريكا</div>
@@ -176,7 +176,7 @@
             </h2>
             <div class="row">
                 <div class="col-md-12 wow fadeInLeft" data-wow-offset="200" data-wow-delay="200ms">
-                    <!-- FAQ -->
+
                     <div class="panel-group accordion" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="heading1">
@@ -188,8 +188,7 @@
                             </div>
                             <div id="collapse1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading1">
                                 <div class="panel-body">
-                                    خطوات الحصول على سيارة .. خطوات الحصول على سيارة .. خطوات الحصول على سيارة .. خطوات الحصول على سيارة .. خطوات الحصول على سيارة .. خطوات الحصول على سيارة .. 
-                                           
+                                    خطوات الحصول على سيارة .. خطوات الحصول على سيارة .. خطوات الحصول على سيارة .. خطوات الحصول على سيارة .. خطوات الحصول على سيارة .. خطوات الحصول على سيارة ..
                                 </div>
                             </div>
                         </div>
@@ -203,7 +202,7 @@
                             </div>
                             <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
                                 <div class="panel-body">
-                                    طرق السداد المتاحة..طرق السداد المتاحة..طرق السداد المتاحة.. طرق السداد المتاحة..طرق السداد المتاحة..طرق السداد المتاحة.. طرق السداد المتاحة..طرق السداد المتاحة..طرق السداد المتاحة..                                            
+                                    طرق السداد المتاحة..طرق السداد المتاحة..طرق السداد المتاحة.. طرق السداد المتاحة..طرق السداد المتاحة..طرق السداد المتاحة.. طرق السداد المتاحة..طرق السداد المتاحة..طرق السداد المتاحة..
                                 </div>
                             </div>
                         </div>
@@ -217,7 +216,7 @@
                             </div>
                             <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
                                 <div class="panel-body">
-                                    صيانة سيارتى المصدومة.. صيانة سيارتى المصدومة.. صيانة سيارتى المصدومة.. صيانة سيارتى المصدومة.. صيانة سيارتى المصدومة.. صيانة سيارتى المصدومة.. صيانة سيارتى المصدومة..                                            
+                                    صيانة سيارتى المصدومة.. صيانة سيارتى المصدومة.. صيانة سيارتى المصدومة.. صيانة سيارتى المصدومة.. صيانة سيارتى المصدومة.. صيانة سيارتى المصدومة.. صيانة سيارتى المصدومة..
                                 </div>
                             </div>
                         </div>
@@ -333,7 +332,7 @@
             </div>
         </div>
     </section>
-        </div>
+    </div>
         <footer class="footer rtl">
             <div class="footer-meta">
                 <div class="container">

@@ -42,12 +42,9 @@ public partial class CarPartsDetails : System.Web.UI.Page
         {
             foreach (var item in data)
             {
-                var model = new CarPartsImagesManager().CarPartHasMainImage(item.CarPartId);
-                if (model.Count() == 0)
-                    item.ImageUrl = "20_bQT1WmUM.jpg";
-                else
-                    item.ImageUrl = model.Where(x => x.IsMain == true).FirstOrDefault().Url;
-            }
+
+                item.ImagesUrl = new CarPartsImagesManager().GetAllImagesUrl(id);
+         }
         }
     }
 }

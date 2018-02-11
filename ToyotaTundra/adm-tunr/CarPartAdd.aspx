@@ -81,6 +81,9 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtSalePrice" ValidationGroup="s" runat="server"></asp:TextBox>
+                         &nbsp;<asp:RequiredFieldValidator SetFocusOnError="true" CssClass="red-txt" ID="RequiredFieldValidator1"
+                        runat="server" ControlToValidate="txtSalePrice" ValidationGroup="s" InitialValue=""
+                        ToolTip="Please select car style." ErrorMessage=""><img runat="server"  src="~/App_Themes/admin/images/warning.png" alt="warning" /></asp:RequiredFieldValidator>
                 </td>
                 <%-- <td>Priority <em class="red-txt">*</em>
                 </td>

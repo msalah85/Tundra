@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using SystemManager.Business;
@@ -22,6 +23,7 @@ public partial class CarParts : System.Web.UI.Page
     }
     protected void btnSearch_Click(object sender, EventArgs e)
     {
+        System.Threading.Thread.Sleep(500);
         ShowCarPartsContentWithSearch();
     }
     private void ShowCarPartsContentWithSearch()
@@ -100,6 +102,14 @@ public partial class CarParts : System.Web.UI.Page
         #endregion
     }
     protected void ddlMarkers_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (ddlMarkers.SelectedIndex > 0)
+            FillLists.FillModelsList(ddlModels, Convert.ToInt32(ddlMarkers.SelectedValue));
+        else
+            ddlModels.Items.Clear();
+    }
+    [WebMethod()]
+    protected void FillCarModelList(string id)
     {
         if (ddlMarkers.SelectedIndex > 0)
             FillLists.FillModelsList(ddlModels, Convert.ToInt32(ddlMarkers.SelectedValue));
