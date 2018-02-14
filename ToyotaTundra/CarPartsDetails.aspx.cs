@@ -34,7 +34,7 @@ public partial class CarPartsDetails : System.Web.UI.Page
     }
     private void ShowCarPartsContent(int id)
     {
-
+        
         // get data.
         List<CarPartDetails> data = new CarPartsManager().GetCarPartDetailsById(id).ToList();
         parts = data;

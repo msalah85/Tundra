@@ -26,6 +26,7 @@ public partial class CarParts : System.Web.UI.Page
         System.Threading.Thread.Sleep(500);
         ShowCarPartsContentWithSearch();
     }
+
     private void ShowCarPartsContentWithSearch()
     {
         CarPartsSearch model = new CarPartsSearch();
@@ -42,7 +43,10 @@ public partial class CarParts : System.Web.UI.Page
         Session["cur_maxPrice"]= Convert.ToDecimal(model.EndPrice);
         List<CarPartDetails> data = new List<CarPartDetails>();
         // get data.
-            data = new CarPartsManager().GetAllCarParts(model).Take(10).ToList();
+        int page = Convert.ToInt32(pagenum.Value);
+        page++;
+        pagenum.Value = page.ToString();
+        data = new CarPartsManager().GetAllCarParts(model).Take(page*10).ToList();
         parts = data;
         if (data != null)
         {
@@ -71,9 +75,9 @@ public partial class CarParts : System.Web.UI.Page
 
     private void ShowCarPartsContent()
     {
-
+        
         // get data.
-        List<CarPartDetails> data = new CarPartsManager().GetAllCarPartsForWebSite().Take(10).ToList();
+        List <CarPartDetails> data = new CarPartsManager().GetAllCarPartsForWebSite().Take(10).ToList();
          maxPrice = data.Max(x => x.Price);
          minPrice = data.Min(x => x.Price);
         Session["maxPrice"] = Convert.ToDecimal(maxPrice);
@@ -82,6 +86,7 @@ public partial class CarParts : System.Web.UI.Page
         parts = data;
         if (data != null)
         {
+          
             foreach (var item in data)
             {
                 var model = new CarPartsImagesManager().CarPartHasMainImage(item.CarPartId);
@@ -115,5 +120,10 @@ public partial class CarParts : System.Web.UI.Page
             FillLists.FillModelsList(ddlModels, Convert.ToInt32(ddlMarkers.SelectedValue));
         else
             ddlModels.Items.Clear();
+    }
+    [WebMethod]
+    public static string SayHello(string page)
+    {
+        return "Hello " + page;
     }
 }

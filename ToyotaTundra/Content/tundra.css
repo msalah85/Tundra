@@ -27,7 +27,12 @@ audio, canvas, progress, video {
 [hidden], template {
     display: none;
 }
-
+.new {
+        top: 190px;
+    left: 446px;
+    display: block;
+    width: 546px;
+}
 a {
     background-color: transparent;
 }
@@ -10250,7 +10255,7 @@ div.pp_default .pp_content, div.light_rounded .pp_content {
         color: #000;
     }
 
-div.pp_default .pp_gallery ul li a:hover, div.pp_default .pp_gallery ul li.selected a, .pp_gallery ul a:hover, .pp_gallery li.selected a {
+div.pp_default .pp_gallerfy ul li a:hover, div.pp_default .pp_gallery ul li.selected a, .pp_gallery ul a:hover, .pp_gallery li.selected a {
     border-color: #fff;
 }
 

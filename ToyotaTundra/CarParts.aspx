@@ -34,6 +34,7 @@
     top: 13px;
     left: 87%;
         }
+    
     </style>
 
     <link rel="stylesheet" id="woocommerce-layout-css" href="http://rentit.wpmix.net/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=3.2.6" type="text/css" media="all">
@@ -102,7 +103,10 @@
                                                     <li><a href="https://www.facebook.com/pg/tundramk/posts/" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="#contact-us">تواصل معنا</a></li>
+                                            <li><a href="default.aspx#contact-us">تواصل معنا</a></li>
+                                            <li><a href="default.aspx#partners">شركاؤنا</a></li>
+                                            <li><a href="default.aspx#offers">عروض تاندرا</a></li>
+                                            <li><a href="default.aspx#who-we-are">عن الشركة</a></li>
                                         </ul>
                                    
                                 <div class="swiper-scrollbar"></div>
@@ -141,9 +145,10 @@
                                         </asp:UpdateProgress>
                             </div>
                         <asp:UpdatePanel ID="panel" runat="server"><ContentTemplate>
-
-                        <div class="col-md-9 content  " id="content">
+                            
+                        <div class="col-md-9 content text-center " id="content">
                             <div class="row">
+                                
                                  <% if (parts.Count() > 0) %>
                         <%{ %>
                         <%foreach (var item in parts)
@@ -151,12 +156,41 @@
                                 <div class="col-md-6">
                                     <div class="thumbnail no-border no-padding thumbnail-car-card" >
                                         <div class="media" >
-                                                <img style="width: 420px;height: 279px;" src='../Public/image/carParts/_thumb/<%=item.ImageUrl %>' />
+                                                <img style="width: 420px;height: 200px;" src='../Public/image/carParts/_thumb/<%=item.ImageUrl %>' />
                                         </div>
+                                          <table class="table" style="align-content:center">
+                                                <tbody>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <i class=""></i>السنة  </td>
+                                                        <td align="center">
+                                                            <i class=""></i>السعر </td>
+                                                        <td align="center">
+                                                            <i class=""></i>تصنيف القطعة  </td>
+                                                        <td align="center">
+                                                            <i class=""></i>موديل السيارة   </td>
+                                                         <td align="center">
+                                                            <i class=""></i>نوع السياره </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <i class=""></i><% = item.Year %> </td>
+                                                        <td align="center">
+                                                            <i class=""></i> $<% =  Convert.ToInt32(item.Price) %></td>
+                                                        <td align="center">
+                                                            <i class="" ></i><% = item.CarPartType %> </td>
+                                                        <td align="center">
+                                                            <i class=""></i><% = item.ModelNameEn %> </td>
+                                                         <td align="center">
+                                                            <i class=""></i><% = item.MarkerNameEn %> </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         <div class="caption text-center">
-                                            <h4 class="caption-title"><% = item.CarPartType %>
+                                          <%--  <h4 class="caption-title">الوصف
                                             </h4>
-                                            <div class="caption-text">
+                                            <div class="caption-text"> 
+                                                 
                                                 <% if (item.Description.Length > 20)
                                                     {%>
                                                 <% = item.Description.Substring(0, 20) + "....  " %>
@@ -164,44 +198,37 @@
     else {%>
                                                 <% =item.Description%>
                                                 <%} %>
-                                            </div>
+                                            </div>--%>
                                             <div class="buttons">
                                                 <a href="/CarPartsDetails.aspx?ID=<%= item.CarPartId%>" data-action="10126" class="btn btn-theme btn-theme-dark" >التفاصيل</a>
                                             </div>
-                                            <table class="table">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <i class=""></i><% = item.Year %> </td>
-                                                        <td>
-                                                            <i class=""></i><% =  Convert.ToInt32(item.Price) %> </td>
-                                                        <td>
-                                                            <i class=""></i><% = item.CarPartType %> </td>
-                                                        <td>
-                                                            <i class=""></i><% = item.ModelNameEn %> </td>
-                                                         <td>
-                                                            <i class=""></i><% = item.MarkerNameEn %> </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                          
                                         </div>
                                     </div>
                                 </div>
-                         
+                          
                             <%}
+
         } %>
+
                         <%else %>
                          <%{ %>  
                         <div class="thumbnail no-border no-padding thumbnail-car-card clearfix">
                         <div class="caption bg-danger text-center"> <h4 class="caption-title "> لا توجد بيانات متطابقة </h4>
                             </div></div><%} %>
-                           
-
+                          
+                               
                             </div>
-                       
+                            <br />
+                            <asp:hiddenfield ID="pagenum"
+              value=1
+              runat="server"/>
+                        <asp:Button Text="أضف المزيد  " runat="server" OnClick="btnSearch_Click"  class="btn btn-theme btn-theme-dark">                                               
+                                            </asp:Button>  
                         </div>
+                              
                             </ContentTemplate></asp:UpdatePanel>
-                                        
+                                     
                        
                                <aside class="col-md-3 sidebar" id="sidebar" >
                                     <asp:UpdatePanel ID="UpdatePanel1" runat="server"><ContentTemplate>
@@ -233,9 +260,9 @@
                                                     </asp:DropDownList>
                                                     <br /> <br /> <br /> <br /> <br />
                                                 </div>
-                                             
-                                            <br />
-                                         
+                                             <label>السنة  </label>
+                                            <br /><br /><br /><br /><br />
+                                          
                                             <div class="form-group selectpicker-wrapper">
                                                 
                                                  <asp:DropDownList ID="ddlToYears" runat="server" class="col-md-6 " style="height:40px">
@@ -282,93 +309,8 @@
                     </div>
                 </div>
             </section>
-              <section id="contact-us" class="page-section contact dark rtl">
-        <div class="container">
-            <h2 class="section-title wow fadeInDown" data-wow-offset="200" data-wow-delay="100ms">
-                <small>يسعدنا تواصلك معنا</small>
-                <span>بيانات الاتصال</span>
-            </h2>
-            <div class="row">
-                <div class="col-md-6 wow fadeInLeft" data-wow-offset="200" data-wow-delay="200ms">
-                    <form name="contact-form" method="post" action="#" class="contact-form" id="contact-form">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="outer required">
-                                    <div class="form-group af-inner has-icon">
-                                        <label class="sr-only" for="email">البريد الإلكترونى</label>
-                                        <input
-                                            type="text" name="email" id="email" placeholder="البريد الإلكترونى" value="" size="30"
-                                            data-toggle="tooltip" title="برجاء ادخال البريد الإلكترونى"
-                                            class="form-control placeholder" />
-                                        <span class="form-control-icon"><i class="fa fa-envelope"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="outer required">
-                                    <div class="form-group af-inner has-icon">
-                                        <label class="sr-only" for="name">الاسم</label>
-                                        <input
-                                            type="text" name="name" id="name" placeholder="الاسم" value="" size="30"
-                                            data-toggle="tooltip" title="برجاء ادخال الاسم"
-                                            class="form-control placeholder" />
-                                        <span class="form-control-icon"><i class="fa fa-user"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="outer required">
-                            <div class="form-group af-inner has-icon">
-                                <label class="sr-only" for="subject">الهاتف</label>
-                                <input type="tel" name="subject" id="subject" placeholder="الهاتف" value="" size="30"
-                                    data-toggle="tooltip" title="برجاء ادخال الهاتف"
-                                    class="form-control placeholder" />
-                                <span class="form-control-icon"><i class="fa fa-phone"></i></span>
-                            </div>
-                        </div>
-                        <div class="form-group af-inner has-icon">
-                            <label class="sr-only" for="input-message">الرسالة</label>
-                            <textarea
-                                name="message" id="input-message" placeholder="الرسالة" rows="4" cols="50"
-                                data-toggle="tooltip" title="برجاء ادخال الرسالة"
-                                class="form-control placeholder"></textarea>
-                            <span class="form-control-icon"><i class="fa fa-bars"></i></span>
-                        </div>
-                        <div class="outer required">
-                            <div class="form-group af-inner">
-                                <input type="submit" name="submit" class="form-button form-button-submit btn btn-block btn-theme ripple-effect btn-theme-dark" id="submit_btn" value="ارســـل رسالــة" />
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-md-6 wow fadeInRight" data-wow-offset="200" data-wow-delay="200ms">
-                    <p>شركة أرضل الموصل ، تاندرا إم كـ.</p>
-                    <ul class="media-list contact-list">
-                        <li class="media">
-                            <div class="media-left"><i class="fa fa-location-arrow"></i></div>
-                            <div class="media-body">العنوان: المنطقة الصناعية الرابعة ، خلف وكالة ايسوزو</div>
-                        </li>
-                        <li class="media">
-                            <div class="media-left"><i class="fa fa"></i></div>
-                            <div class="media-body">الشارقة ، الامارات العربية المتحدة</div>
-                        </li>
-                        <li class="media">
-                            <div class="media-left"><i class="fa fa-phone"></i></div>
-                            <div class="media-body">جوال: 00971564410453</div>
-                        </li>
-                        <li class="media">
-                            <div class="media-left"><i class="fa fa-envelope"></i></div>
-                            <div class="media-body">البريد الإلكتروني: mkautocar@yahoo.com</div>
-                        </li>
-                        <li class="media">
-                            <div class="media-left"><i class="fa fa-map-marker"></i></div>
-                            <a href="https://goo.gl/maps/aedjzVZ7Ss62" target="_blank" class="media-body">عرض الموقع على الخريطة</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+
+
         </div>
           
         <div id="to-top" class="to-top"><i class="fa fa-angle-up"></i></div>
@@ -376,12 +318,12 @@
     </form>
     <script>
         jQuery(document).ready(function ($) {
-
+            page = 2;
             $('#tabs1 li a').click(function () {
                 jQuery(window).trigger('resize');
             });
         });
-
+     
     </script>
     <link rel="stylesheet" id="js_composer_front-css" href="http://rentit.wpmix.net/wp-content/plugins/js_composer/assets/css/js_composer.min.css?ver=5.4.4" type="text/css" media="all">
     <script type="text/javascript" src="http://rentit.wpmix.net/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.70"></script>
