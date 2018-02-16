@@ -2,13 +2,12 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="ar">
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> محمد عزيز كشمولة</title>
     <link rel="shortcut icon" href="~/favicon.ico" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/apple-touch-icon.png">
     <link href="//fonts.googleapis.com/earlyaccess/droidarabickufi.css" rel="stylesheet" />
     <link href="//fonts.googleapis.com/earlyaccess/droidarabicnaskh.css" rel="stylesheet" />
     <link href="/Content/tundra.min.css" rel="stylesheet" />
@@ -18,7 +17,7 @@
         <script src="/Scripts/iesupport/respond.min.js"></script>
     <![endif]-->
 </head>
-<body id="home" class="wide">
+<body id="home" class="wide" dir="rtl">
     <div id="preloader">
         <div id="preloader-status">
             <div class="spinner">
@@ -40,17 +39,17 @@
                             <nav class="navigation closed clearfix">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
-                                        <!-- navigation menu -->
                                         <a href="#" class="menu-toggle-close btn"><i class="fa fa-times"></i></a>
                                         <ul class="nav sf-menu">
                                             <li>
-                                                <ul class="social-icons">                                                    
+                                                <ul class="social-icons">
                                                     <li><a href="https://www.instagram.com/tundra_mk/" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a></li>
                                                     <li><a href="https://www.facebook.com/pg/tundramk/posts/" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a></li>
                                                 </ul>
                                             </li>
-                                             <li><a href="#contact-us">تواصل معنا</a></li>
+                                            <li><a href="#contact-us">تواصل معنا</a></li>
                                             <li><a href="default.aspx#partners">شركاؤنا</a></li>
+                                            <li><a href="CarParts.aspx">قطع الغيار</a></li>
                                             <li><a href="default.aspx#offers">عروض تاندرا</a></li>
                                             <li><a href="default.aspx#who-we-are">عن الشركة</a></li>
                                         </ul>
@@ -72,94 +71,94 @@
         </header>
         <div class="content-area">
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />
-    <section id="contact-us" class="page-section contact dark rtl">
-        <div class="container">
-            <h2 class="section-title wow fadeInDown" data-wow-offset="200" data-wow-delay="100ms">
-                <small>يسعدنا تواصلك معنا</small>
-                <span>بيانات الاتصال</span>
-            </h2>
-            <div class="row">
-                <div class="col-md-6 wow fadeInLeft" data-wow-offset="200" data-wow-delay="200ms">
-                    <form name="contact-form" method="post" action="#" class="contact-form" id="contact-form">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="outer required">
-                                    <div class="form-group af-inner has-icon">
-                                        <label class="sr-only" for="email">البريد الإلكترونى</label>
-                                        <input
-                                            type="text" name="email" id="email" placeholder="البريد الإلكترونى" value="" size="30"
-                                            data-toggle="tooltip" title="برجاء ادخال البريد الإلكترونى"
-                                            class="form-control placeholder" />
-                                        <span class="form-control-icon"><i class="fa fa-envelope"></i></span>
+            <section id="contact-us" class="page-section contact dark rtl">
+                <div class="container">
+                    <h2 class="section-title wow fadeInDown" data-wow-offset="200" data-wow-delay="100ms">
+                        <small>يسعدنا تواصلك معنا</small>
+                        <span>بيانات الاتصال</span>
+                    </h2>
+                    <div class="row">
+                        <div class="col-md-6 wow fadeInLeft" data-wow-offset="200" data-wow-delay="200ms">
+                            <form name="contact-form" method="post" action="#" class="contact-form" id="contact-form">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="outer required">
+                                            <div class="form-group af-inner has-icon">
+                                                <label class="sr-only" for="email">البريد الإلكترونى</label>
+                                                <input
+                                                    type="text" name="email" id="email" placeholder="البريد الإلكترونى" value="" size="30"
+                                                    data-toggle="tooltip" title="برجاء ادخال البريد الإلكترونى"
+                                                    class="form-control placeholder" />
+                                                <span class="form-control-icon"><i class="fa fa-envelope"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="outer required">
+                                            <div class="form-group af-inner has-icon">
+                                                <label class="sr-only" for="name">الاسم</label>
+                                                <input
+                                                    type="text" name="name" id="name" placeholder="الاسم" value="" size="30"
+                                                    data-toggle="tooltip" title="برجاء ادخال الاسم"
+                                                    class="form-control placeholder" />
+                                                <span class="form-control-icon"><i class="fa fa-user"></i></span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
                                 <div class="outer required">
                                     <div class="form-group af-inner has-icon">
-                                        <label class="sr-only" for="name">الاسم</label>
-                                        <input
-                                            type="text" name="name" id="name" placeholder="الاسم" value="" size="30"
-                                            data-toggle="tooltip" title="برجاء ادخال الاسم"
+                                        <label class="sr-only" for="subject">الهاتف</label>
+                                        <input type="tel" name="subject" id="subject" placeholder="الهاتف" value="" size="30"
+                                            data-toggle="tooltip" title="برجاء ادخال الهاتف"
                                             class="form-control placeholder" />
-                                        <span class="form-control-icon"><i class="fa fa-user"></i></span>
+                                        <span class="form-control-icon"><i class="fa fa-phone"></i></span>
                                     </div>
                                 </div>
-                            </div>
+                                <div class="form-group af-inner has-icon">
+                                    <label class="sr-only" for="input-message">الرسالة</label>
+                                    <textarea
+                                        name="message" id="input-message" placeholder="الرسالة" rows="4" cols="50"
+                                        data-toggle="tooltip" title="برجاء ادخال الرسالة"
+                                        class="form-control placeholder"></textarea>
+                                    <span class="form-control-icon"><i class="fa fa-bars"></i></span>
+                                </div>
+                                <div class="outer required">
+                                    <div class="form-group af-inner">
+                                        <input type="submit" name="submit" class="form-button form-button-submit btn btn-block btn-theme ripple-effect btn-theme-dark" id="submit_btn" value="ارســـل رسالــة" />
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="outer required">
-                            <div class="form-group af-inner has-icon">
-                                <label class="sr-only" for="subject">الهاتف</label>
-                                <input type="tel" name="subject" id="subject" placeholder="الهاتف" value="" size="30"
-                                    data-toggle="tooltip" title="برجاء ادخال الهاتف"
-                                    class="form-control placeholder" />
-                                <span class="form-control-icon"><i class="fa fa-phone"></i></span>
-                            </div>
+                        <div class="col-md-6 wow fadeInRight" data-wow-offset="200" data-wow-delay="200ms">
+                            <p>شركة أرضل الموصل ، تاندرا إم كـ.</p>
+                            <ul class="media-list contact-list">
+                                <li class="media">
+                                    <div class="media-left"><i class="fa fa-location-arrow"></i></div>
+                                    <div class="media-body">العنوان: المنطقة الصناعية الرابعة ، خلف وكالة ايسوزو</div>
+                                </li>
+                                <li class="media">
+                                    <div class="media-left"><i class="fa fa"></i></div>
+                                    <div class="media-body">الشارقة ، الامارات العربية المتحدة</div>
+                                </li>
+                                <li class="media">
+                                    <div class="media-left"><i class="fa fa-phone"></i></div>
+                                    <div class="media-body">جوال: 00971564410453</div>
+                                </li>
+                                <li class="media">
+                                    <div class="media-left"><i class="fa fa-envelope"></i></div>
+                                    <div class="media-body">البريد الإلكتروني: mkautocar@yahoo.com</div>
+                                </li>
+                                <li class="media">
+                                    <div class="media-left"><i class="fa fa-map-marker"></i></div>
+                                    <a href="https://goo.gl/maps/aedjzVZ7Ss62" target="_blank" class="media-body">عرض الموقع على الخريطة</a>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="form-group af-inner has-icon">
-                            <label class="sr-only" for="input-message">الرسالة</label>
-                            <textarea
-                                name="message" id="input-message" placeholder="الرسالة" rows="4" cols="50"
-                                data-toggle="tooltip" title="برجاء ادخال الرسالة"
-                                class="form-control placeholder"></textarea>
-                            <span class="form-control-icon"><i class="fa fa-bars"></i></span>
-                        </div>
-                        <div class="outer required">
-                            <div class="form-group af-inner">
-                                <input type="submit" name="submit" class="form-button form-button-submit btn btn-block btn-theme ripple-effect btn-theme-dark" id="submit_btn" value="ارســـل رسالــة" />
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
-                <div class="col-md-6 wow fadeInRight" data-wow-offset="200" data-wow-delay="200ms">
-                    <p>شركة أرضل الموصل ، تاندرا إم كـ.</p>
-                    <ul class="media-list contact-list">
-                        <li class="media">
-                            <div class="media-left"><i class="fa fa-location-arrow"></i></div>
-                            <div class="media-body">العنوان: المنطقة الصناعية الرابعة ، خلف وكالة ايسوزو</div>
-                        </li>
-                        <li class="media">
-                            <div class="media-left"><i class="fa fa"></i></div>
-                            <div class="media-body">الشارقة ، الامارات العربية المتحدة</div>
-                        </li>
-                        <li class="media">
-                            <div class="media-left"><i class="fa fa-phone"></i></div>
-                            <div class="media-body">جوال: 00971564410453</div>
-                        </li>
-                        <li class="media">
-                            <div class="media-left"><i class="fa fa-envelope"></i></div>
-                            <div class="media-body">البريد الإلكتروني: mkautocar@yahoo.com</div>
-                        </li>
-                        <li class="media">
-                            <div class="media-left"><i class="fa fa-map-marker"></i></div>
-                            <a href="https://goo.gl/maps/aedjzVZ7Ss62" target="_blank" class="media-body">عرض الموقع على الخريطة</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            </section>
         </div>
-    </section>
-    </div>
         <footer class="footer rtl">
             <div class="footer-meta">
                 <div class="container">

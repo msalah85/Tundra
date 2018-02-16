@@ -18898,7 +18898,7 @@ input[type=checkbox] {
         }
 
         .page-section.breadcrumbs .breadcrumb > li + li:before {
-            content: '\f105 ';
+            content: '\f104 ';
             font-family: 'FontAwesome';
         }
 
