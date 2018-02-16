@@ -32,7 +32,7 @@
                             <span class="inf">سنة الصنع </span><b style="float: left;"><%=part.Year %></b>
                         </li>
                         <li class="list-group-item">
-                            <span class="inf">السعر </span><b style="float: left;">$<%=Convert.ToInt32(part.Price) %> </b>
+                            <span class="inf">السعر </span><b style="float: left;">$<%=string.Format("{0:0,0}",part.Price) %> </b>
                         </li>
                         <li class="list-group-item">
                             <span class="inf">الوصف </span><b style="float: left;"></b>
