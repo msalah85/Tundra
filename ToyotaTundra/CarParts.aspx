@@ -6,11 +6,7 @@
     <title>Car Parts</title>
     <link rel="dns-prefetch" href="//maps.googleapis.com">
     <link rel="dns-prefetch" href="//s.w.org">
-    <link rel="alternate" type="application/rss+xml" title="RentIT » Feed" href="http://rentit.wpmix.net/feed/">
-    <link rel="alternate" type="application/rss+xml" title="RentIT » Comments Feed" href="http://rentit.wpmix.net/comments/feed/">
-    <link rel="alternate" type="application/rss+xml" title="RentIT » Products Feed" href="http://rentit.wpmix.net/shop/feed/">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <script src="http://rentit.wpmix.net/wp-includes/js/wp-emoji-release.min.js?ver=4.9.2" type="text/javascript" defer=""></script>
+ 
     <style type="text/css">
         img.wp-smiley,
         img.emoji {
@@ -51,6 +47,10 @@
     <link rel="stylesheet" id="renita_theme1-css" href="http://rentit.wpmix.net/wp-content/themes/rentit/css/theme.css?ver=4.9.2" type="text/css" media="all">
     <link rel="stylesheet" id="renita_wp-css" href="http://rentit.wpmix.net/wp-content/themes/rentit/style.css?ver=4.9.2" type="text/css" media="all">
     <link rel="stylesheet" id="renita_jquery-style-css" href="http://rentit.wpmix.net/wp-content/themes/rentit/css/jquery-ui.css?ver=4.9.2" type="text/css" media="all">
+     <link href="//fonts.googleapis.com/earlyaccess/droidarabickufi.css" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/earlyaccess/droidarabicnaskh.css" rel="stylesheet" />
+    <link href="/Content/tundra.min.css" rel="stylesheet" />
+    
     <script type="text/javascript" src="http://rentit.wpmix.net/wp-includes/js/jquery/jquery.js?ver=1.12.4"></script>
     <script type="text/javascript" src="http://rentit.wpmix.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1"></script>
     <script type="text/javascript">
@@ -90,7 +90,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-10">
-                                <nav class="navigation closed clearfix" style="position: relative; float: left;">
+                                <nav class="navigation closed clearfix" style="width:500px; position: relative; float: left;">
 
                                     <!-- navigation menu -->
                                     <a href="#" class="menu-toggle-close btn"><i class="fa fa-times"></i></a>
@@ -123,10 +123,20 @@
             </header>
             <br />
             <br />
-            <h2 class="section-title wow fadeInUp" data-wow-offset="70" data-wow-delay="500ms">
-                <small>اختر وقارن بين قطع الغيار </small>
-                <span>من قطع غيار  تاندرا المتميزة</span>
-            </h2>
+              <section class="page-section breadcrumbs text-center">
+        <div class="container">
+            
+             <div class="page-header">
+                <h2>قطع غيار تاندرا </h2>
+            </div>
+            <ul class="breadcrumb">
+                
+                <li class="active">قطع الغيار</li>
+                <li><a href="/">الرئيسية</a></li>
+            </ul>
+        </div>
+    </section>
+          
 
             <div class="content-area">
 
@@ -224,7 +234,10 @@
                                         <asp:HiddenField ID="pagenum"
                                             Value="1"
                                             runat="server" />
-                                        <asp:Button Text="أضف المزيد  " runat="server" OnClick="btnSearch_Click" class="btn btn-theme btn-theme-dark"></asp:Button>
+                                        <% if (parts.Count() > 0) %>
+                                        <%{ %>
+                                        <asp:Button ID="AddMore" Text="أضف المزيد  " runat="server" OnClick="btnSearch_Click" class="btn btn-theme btn-theme-dark"></asp:Button>
+                                        <%} %>
                                     </div>
 
                                 </ContentTemplate>
@@ -241,7 +254,7 @@
 
                                                     <div class="form-search light">
                                                         <div class="form-group has-icon has-label">
-                                                            <asp:TextBox ID="txtName" runat="server" class="form-control" placeholder="                           ....... بحث " Style="float: right"></asp:TextBox><i class="fa fa-search ser"></i>
+                                                            <asp:TextBox ID="txtName" runat="server" class="form-control" placeholder="                     ....... بحث " Style="float: right"></asp:TextBox><i class="fa fa-search ser"></i>
 
 
                                                         </div>

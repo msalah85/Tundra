@@ -244,7 +244,7 @@ static public class FillLists
         list.DataTextField = "YearNameEn";
         list.DataBind();
 
-        list.Items.Insert(0, "السنة من");
+        list.Items.Insert(0, "من");
     }
     static public void FillToYearsList(DropDownList list)
     {
@@ -255,7 +255,7 @@ static public class FillLists
         list.DataTextField = "YearNameEn";
         list.DataBind();
 
-        list.Items.Insert(0, "السنة إلي");
+        list.Items.Insert(0,"إلى ");
     }
 
     static public void FillWorkingStatusList(DropDownList list)

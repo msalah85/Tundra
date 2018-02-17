@@ -7,11 +7,39 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> محمد عزيز كشمولة</title>
+        
+   
+  
     <link rel="shortcut icon" href="~/favicon.ico" />
+
     <link href="//fonts.googleapis.com/earlyaccess/droidarabickufi.css" rel="stylesheet" />
     <link href="//fonts.googleapis.com/earlyaccess/droidarabicnaskh.css" rel="stylesheet" />
     <link href="/Content/tundra.min.css" rel="stylesheet" />
     <script src="Scripts/modernizr-2.6.2.min.js"></script>
+        <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+
+        label {
+            float: right;
+        }
+
+        .ser {
+            position: absolute;
+            top: 13px;
+            left: 87%;
+        }
+    </style>
     <!--[if lt IE 9]>
         <script src="/Scripts/iesupport/html5shiv.js"></script>
         <script src="/Scripts/iesupport/respond.min.js"></script>
@@ -178,6 +206,9 @@
         </footer>
         <div id="to-top" class="to-top"><i class="fa fa-angle-up"></i></div>
     </div>
+      <script type="text/javascript" src="http://rentit.wpmix.net/wp-content/themes/rentit/js/theme.js?ver=1"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsbzuJDUEOoq-jS1HO-LUXW4qo0gW9FNs&amp;libraries=places&amp;callback=initialize_map&amp;ver=3"></script>
+    
     <script src="/Scripts/tundra.min.js"></script>
     <script src="/Scripts/custom.min.js"></script>
     <script>$("#status").fadeOut(); $("#preloader").delay(200).fadeOut(200);</script>
